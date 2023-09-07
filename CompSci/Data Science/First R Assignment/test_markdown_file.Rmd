@@ -1,0 +1,12 @@
+---
+title: "Assignment 1"
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Euler's identity is $e^{i\pi} + 1 = 0$ is the most beautiful equation
