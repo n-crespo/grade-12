@@ -1,0 +1,78 @@
+---
+title: "Assignment_2"
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assignment 2
+1. Add 2 + 2
+
+```{r addition}
+2+2
+```
+
+2. Create a list `dat` that goes from 1 to 10
+3. View `dat`
+4. Find the mean of `dat`
+
+```{r dat}
+# dat <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) #this also works
+(dat <- seq(1, 10, 1))
+mean(dat)
+```
+
+5. Create another list called `dat2` that takes the sine of each 
+individual element of dat multiplied by $\frac{\pi}{2}$.
+```{r dat2}
+dat2 <- sin(dat*(pi/4))
+dat2  
+```
+
+
+6. View `dat2`
+7. Plot `dat2` vs `dat` in a scatterplot
+8. Plot `dat2` vs `dat` in a line graph
+```{r Plot dat2 vs. dat}
+plot(x = dat, y = dat2,
+     main = "Title of scatterplot",
+     xlab = "X-axis title",
+     ylab = "Y-axis title")
+plot(dat, dat2, type="l")
+```
+
+9. Create a list called `dat3` with 5 A’s and 5 B’s
+10. View `dat3`
+```{r}
+dat3 <- c("A", "A", "A")
+```
+
+11. Find the mean of `dat3`.
+```{r dat3}
+(dat3 <- c(rep("A", 5), rep("B", 5)))
+mean(dat3)
+```
+```{r Plot dat vs. dat, eval = FALSE}
+plot(dat3, dat, EVAL = FALSE)
+```
+
+13. Using the aggregate function, find the average of dat based on the list of A’s and B’s.
+14. Make the code in [13] assigned to a variable called aggDat
+15. View aggDat
+```{r Aggregate function}
+aggregate(dat, list(dat3), mean)
+aggDat <- aggregate(dat, list(dat3), mean)
+aggDat
+```
+16. Select the column x in aggDat
+```{r Column select aggDat}
+aggDat$x
+```
+17. Make a barplot of aggDat column x with “A” and “B” as the titles of each of the bars.
+```{r Barplot of aggDat}
+barplot(aggDat$x, names.arg = c("A", "B"))
+```
