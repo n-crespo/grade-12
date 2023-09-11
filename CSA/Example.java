@@ -1,5 +1,6 @@
 public class Example {
   public static void main(String[] args) {
-    System.out.println(404 / 10 * 10 + 1);
+    int value = 3;
+    double otherVal = value / 2;
   }
 }
