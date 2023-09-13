@@ -1,5 +1,4 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
@@ -19,7 +18,8 @@ int main() {
   double perimeterInMeters = perimeter * 0.3048;
   double areaInMeters = area * 0.3048;
 
-  cout << "The perimter in meters of the room is: " << perimeterInMeters
+  /* output the things  */
+  cout << "The perimeter in meters of the room is: " << perimeterInMeters
        << endl;
   cout << "The area in meters of the room is: " << areaInMeters << endl;
 }

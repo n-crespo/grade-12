@@ -1,9 +1,8 @@
 #include <iostream>
-//hello this is a comment
+/* hello this is a comment somethinde*/
 //
-int main()
-{
+int main() {
 
-    std::cout << "World, Hello!" << std::endl;
-    return 0;
+  std::cout << "World, Hello!" << std::endl;
+  return 0;
 }
