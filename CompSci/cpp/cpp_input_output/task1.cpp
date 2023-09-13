@@ -1,21 +1,25 @@
 #include <iostream>
-//This is task2
 
 using namespace std;
 
 int main() {
   double length, width;
-  cout << "Please enter length, space, then width of the room: " << endl;
+
+  /* get input (width and length), use equations to calculate area and perimeter
+   */
+  cout << "Please enter length, space, then width of the room in feet: "
+       << endl;
   cin >> length >> width;
+  double area = width * length;
+  double perimeter = length * 2 + width * 2;
+  cout << "The area of the room in feet is: " << area << endl;
+  cout << "The perimeter of the room in feet is: " << perimeter << endl;
 
-  double area = width*length;
-  cout << "The area of the room is: " << area << endl;
-  cout << "The perimeter of the room is: " <<  length*2 + width*2 << endl;
+  /* convert from feet to meters */
+  double perimeterInMeters = perimeter * 0.3048;
+  double areaInMeters = area * 0.3048;
 
-  double  perimeterInMeters = length * 0.3048;
-  double areaInMeters = width * 0.3048;
-
-  cout << "The area in meters of the room is: " << perimeterInMeters << endl;
+  cout << "The perimter in meters of the room is: " << perimeterInMeters
+       << endl;
   cout << "The area in meters of the room is: " << areaInMeters << endl;
 }
-
