@@ -54,10 +54,10 @@ For this assignment you’ll be making and submitting a markdown document that u
 print("hello, world" )
 ```
 ## 11. 
-| This is | a table | ehhhh}
-|---------|---------|---|
-|second item| this is another item| soemloandla|
-|item again|another item|slaknsdlk|
+| This is     | a table              | ehhhh}      |
+| ----------- | -------------------- | ----------- |
+| second item | this is another item | soemloandla |
+| item again  | another item         | slaknsdlk   |
 ## 12. 
 ---
 ## 13. 
