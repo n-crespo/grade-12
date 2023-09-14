@@ -1,0 +1,105 @@
+---
+title: "dataDemoPart2"
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(dplyr)
+setwd("C:/Users/nicol/Downloads/")
+df <- read.table("classNoMissNoText.csv",
+                 sep = ",",
+                 header=TRUE,
+                 stringsAsFactors = FALSE)
+
+df.dplyr <- read.table("classNoMissNoText.csv",
+                 sep = ",",
+                 header=TRUE,
+                 stringsAsFactors = FALSE)
+```
+## 1
+```{r}
+df$age[4]
+
+```
+
+## 2
+```{r}
+max(df$age)
+```
+
+
+## 3
+```{r}
+df$shoe[14]
+```
+
+## 4
+```{r}
+df$expGrade[10]
+```
+## 5
+```{r}
+df[2,]
+df[,2]
+```
+
+## 6
+```{r}
+class(df)
+```
+
+## 7
+```{r}
+class(df$expGrade)
+```
+
+## 8 
+```{r}
+class(df)
+class(df$siblings)
+```
+## 9 
+```{r}
+siblings_square <- df$siblings^2
+siblings_square
+```
+## 10
+```{r}
+df$siblingsInt <- as.integer(df$siblings)
+names(df)
+```
+
+## 11, 12
+```{r}
+names(df)
+class(df$siblingsInt)
+```
+
+## 13, 14, 15
+```{r}
+class(df$age)
+min(df$age)
+max(df$age)
+```
+
+
+## 16.
+```{r}
+df$ageScale <- df$age / max(df$age)
+df$ageScale
+```
+
+## 17, 18
+```{r}
+df_dplyr <- df.dplyr %>%
+  mutate(siblingsInt = as.integer(siblings))
+  mutate(ageScale = age/max(age))
+View(df_dplyr)
+```
+
