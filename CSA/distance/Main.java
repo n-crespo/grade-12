@@ -11,7 +11,6 @@ double distance;
 System.out.println("enter x1 point:");
 
 x1=scan.nextInt();
-
 System.out.println("enter x2 point:");
 
 x2=scan.nextInt();
