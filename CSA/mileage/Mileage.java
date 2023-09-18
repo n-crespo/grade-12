@@ -4,9 +4,11 @@ public class Mileage {
   public static void main(String[] args) {
 
     Scanner scan = new Scanner(System.in);
-    double expr = scan.nextDouble();
+    double expression = scan.nextDouble();
 
-    System.out.println(expr);
+    System.out.println(expression);
     scan.close();
+    System.out.println("--------------------------------");
+    System.out.println("--------------------------------");
   }
 }
