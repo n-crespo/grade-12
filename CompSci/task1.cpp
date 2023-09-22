@@ -1,19 +1,35 @@
+
 #include <cmath>
+#include <fstream>
+#include <iomanip>
 #include <iostream>
+#include <string>
 
 using namespace std;
 
 int main() {
-  int dime = 10;
-  int nickel = 5;
-  int quarter = 25;
-  int penny = 1;
-  int change;
 
-  cout << "Enter how much change you have in cents: " << endl;
-  cin >> change;
+  string firstName, lastName;
+  double salary, raise, newSalary;
 
-  int halfDollar = floor(change / 50);
-  cout << "Half Dollars: " < < < < endl;
-  change -=
+  ifstream fin;
+  ifstream inFile;
+  ifstream inData;
+
+  fin.open("test.txt");
+
+  fin >> firstName >> lastName >> salary >> raise;
+  salary *= 2;
+  // do stuff
+
+  fin.close();
+
+  ofstream fout;
+  ofstream outFile;
+  ofstream outData;
+
+  fout.open("output.txt");
+  fout << salary;
+
+  return 0;
 }

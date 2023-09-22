@@ -10,8 +10,7 @@ int main() {
   cin >> change;
 
   // use floor division for each coin to caclulate max number of coins that can
-  // fit within the inputted amount, then subtract that number of coins times
-  // the coin value from the change, and repeat for all coins.
+  // fit within the inputted amount,
   int halfDollar = floor(change / 50);
   cout << "Half Dollars: " << halfDollar << endl;
   change -= halfDollar * 50;
