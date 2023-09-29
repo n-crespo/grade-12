@@ -8,26 +8,31 @@ public class Potato {
     arm = 0;
     job = "None";
   }
-  public Potato(String n, int a, String j){
-    name = n;
-    arm = a;
-    job = j; 
-  } 
-  public Potato(String n, int a){
-    name = n;
-    arm = a;
-    job = "None"; 
-  } 
 
-  public void speak(){
+  public Potato(String n, int a, String j) {
+    name = n;
+    arm = a;
+    job = j;
+  }
+
+  public Potato(String n, int a) {
+    name = n;
+    arm = a;
+    job = "None";
+  }
+
+  public void speak() {
     System.out.println("potato sounds");
   }
-  public void addArm(){
+
+  public void addArm() {
     arm++;
   }
+
   public static void main(String[] args) {
     Potato mrPotato = new Potato("Mr. Potato", 35, "Dentist");
-    mrPotato.addArm();
-    System.out.println(mrPotato.arm());
+    mrPotato.addArm()
+    System.out.println(mrPotato.arm);
+    System.out.println(mrPotato.job);
   }
 }
