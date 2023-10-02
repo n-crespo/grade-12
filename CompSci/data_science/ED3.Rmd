@@ -1,0 +1,112 @@
+---
+title: "EDA3"
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. Reduce the data to only include quantitative variables of interest.
+2. Shift and scale the variables so that each have mean zero and variance 1.
+3. Apply the function kmeans() .
+
+```{r}
+library(dplyr)
+library(tidyverse)
+df <- read_csv("C:/Users/nicol/rmd/edaClustering3/classNoMissNoText.csv")
+# isolate needed columns
+df_particular <- select(df, "petLove", "extrovert")
+view(df_particular)
+```
+
+```{r}
+df_particular_scaled <- scale(df_particular)
+view(df_particular_scaled)
+```
+
+Now, let’s complete each step with careful detail to cluster extrovert and petlove.
+
+1. To start, create an IR object that only includes the variables I extrovert and petLove. These are columns 10 and 11 in the dataset, but you'll be getting these columns by name instead.
+2. Subset the dataset to only include these columns.
+3. Next, shift and scale the variables so that each have mean zero and variance 1 using the scale() function.
+
+```{r}
+mean(df_particular$petLove)
+mean(df_particular$extrovert)
+
+# Should be near zero
+mean(df_particular_scaled[,1])
+mean(df_particular_scaled[,2])
+
+# should be 1
+var(df_particular_scaled[,2])
+var(df_particular_scaled[,1])
+```
+
+
+Without loss of generality, we will shift and scale the variables to have mean 0, and variance 1 using the function scale().
+
+4. What is the mean and variance of petLove and extrovert before scaling them?
+
+5. What are the mean and variance of petLove and extrovert after scaling them?
+
+6. Do petLove and extrovert have the same mean and variance after scaling them? Why or why not?
+
+7. Now, apply the function kmeans() to the scaled variables. Use the k argument to specify the number of clusters to find. For now, set k = 3. We’ll set nstart = 20 so that k-means is run a certain number of times and doesn’t automatically find a global minimum, rather than a local one, that can cause issues later on in the data.
+
+8. As described b R documentation, what arethe irst two arguments to the kmeans() function?
+
+9. Change the nmber of clusters to k = 5. What do you see in the output? What changes?
+
+10. Change the number of clusters to k = 10. What do you see in the output? What changes?
+
+
+
+
+
+In the output of kmeans() you can see AL the output of the algorithm. The most important part of the output is the cluster column. This column tells you which cluster each observation belongs to. You can also click on it in the Environment pane to see all of the other parts to the kmeans() function.
+
+The function kmeans() names some of its outputs as follows:
+
+Analogous uses of $:
+
+Access the variable, petLove from the data.frame object df using df$petLove.
+Access the cluster assignments from th object km3, via the code km3$cluster
+
+11. As previously stated, the component cluster in the km3 object lists the cluster assignmetns for each observation in the dataset. What are the unique values tores in km3$cluster?
+12. Plot extrovert and petLove again, but this time with k-means cluster assignments. Use the col argument to color the points by cluster assignment.
+13. What do you see? Do you see any clusters? If so, how many? If not, why not?
+14. Do the clusters make sense? Why or why not? If not, what might you do to create clusters that do make sense?
+
+Looking a little more into clusters
+
+15. Generate a summary of of each cluster in the km3 object using the summary() function.
+16. Relating to #15, how is == being used? And, how does the code select the correct rows for each cluster?
+
+
+
+
+
+
+Boxplotting some clusters
+
+17. Generate a boxplot of the three clusters in km3 using the boxplot() function. Use the col argument to color the boxes by cluster assignment. Do this for petLove variable.
+18. Generate a boxplot of the three clusters in km3 using the boxplot() function. Use the col argument to color the boxes by cluster assignment. Do this for extrovert variable.
+19. Based on the summaris and/or boxplots, how do the clusters compare? What do you notice? What do you see?
+
+
+
+
+Your turn
+
+To conclude, generate at least one data summary (quantitative or visual) that may support or contradict each hypothesis that you wrote in EDA With Clusters Part 1. Then, explain how you think the summary supports or contradicts the hypothesis.
+
+20. H1 Summary Statistic
+21. H1 Explanation
+22. H2 Summary Statistic
+23. H2 Explanation
+24. H3 Summary Statistic
+25. H3 Explanation
