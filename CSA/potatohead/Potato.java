@@ -31,7 +31,7 @@ public class Potato {
 
   public static void main(String[] args) {
     Potato mrPotato = new Potato("Mr. Potato", 35, "Dentist");
-    mrPotato.addArm()
+    mrPotato.addArm();
     System.out.println(mrPotato.arm);
     System.out.println(mrPotato.job);
   }

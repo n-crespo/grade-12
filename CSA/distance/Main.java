@@ -1,3 +1,5 @@
+package CSA.distance;
+
 import java.util.Scanner;
 
 public class Main {
