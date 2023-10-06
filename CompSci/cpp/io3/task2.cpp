@@ -22,3 +22,4 @@ int main() {
   cout << "This costs this much: $" << fixed << setprecision(2)
        << price * produced << endl;
 }
+/* HACK */
