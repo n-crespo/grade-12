@@ -1,12 +1,12 @@
 Here is the summary of office supply order: 
 ------------------------------------------- 
-Paper1.23468e+07
-Marker1.32254e+06
-Dry Erase Marker-------132
-Tape----456235
-Pencil------4346
-Eraser----143254
-Highlighter---------0
-Paper Clip1.23468e+07
-The office supply order total cost is: $2.08583e+08
+Paper--------12
+Marker--------12
+Dry Erase Marker--------12
+Tape--------12
+Pencil--------12
+Eraser--------12
+Highlighter--------12
+Paper Clip--------12
+The office supply order total cost is: $440.76
 Shipping time: 5 days.

@@ -1,0 +1,32 @@
+Timestamp,What grade are you in?,What is your home school?,What GSST strand do you attend?,What is your GPA?,"On average, how many hours of sleep do you get every day?","On average, how many days a week do you eat breakfast?",How would you describe your level of stress on a scale of 0 to 10?,At what age did you learn to use a computer? (Estimate),What is your average typing speed on a physical keyboard? (optional) (Monkeytype),What operating system do you use?,"On a scale of 0 to 10, how much do you like Microsoft services?","On a scale of 0 to 10, how much do you like Google services?",Do you use a Chromium-based browser?,"On a scale of  to 10, how concerned are you about companies stealing your data?",Do you use an ad blocker?,Did you lie on any question in this survey?,Did you lie on the previous question?
+10/25/2023 12:25:44,11th,York,Engineering,3.7,7,7,5,7,80,Windows,5,8,No,6,Yes,Yes,No
+10/25/2023 12:26:38,11th,Windsor,Computer Science,3.7,8,5,6,7,56,Windows,4,7,Yes,1,Yes,No,No
+10/25/2023 12:26:52,11th,Warwick ,Engineering,4.47,8,5,5,8,N/A,Windows,10,6,Yes,5,Yes,No,No
+10/25/2023 12:26:54,11th,York,Engineering,3.7,6,7,5,10,N/A,Windows,5,5,Yes,5,No,Yes,Yes
+10/25/2023 12:26:58,11th,Tabb,Engineering,4.5,7,7,3,5,60,Windows,7,9,Yes,7,Yes,No,No
+10/25/2023 12:27:14,11th,Tabb,Engineering,4.7,6,7,8,12,80,Windows,9,1,Yes,2,Yes,No,Yes
+10/25/2023 12:28:14,11th,Smithfield ,Computer Science,4.361,3,2,9,4,N/A,Windows,9,6,Yes,5,Yes,No,No
+10/25/2023 12:28:31,11th,Warwick ,Computer Science,4.42,7,6,8,7,50,Windows,7,8,Yes,4,Yes,No,No
+10/25/2023 12:28:54,11th,Smithfield,Computer Science,4.3,6,6,5,8,65,Windows,5,7,No,5,Yes,No,No
+10/25/2023 12:29:11,11th,Smithfield,Computer Science,4.25,4,2,9,4,45,Windows,9,7,No,5,Yes,No,No
+10/25/2023 12:29:20,11th,Smithfield,Computer Science,4.1,2,0,8,8,N/A,Windows,10,8,No,6,Yes,No,No
+10/25/2023 12:29:36,11th,Grafton,Biochemistry,4.7,7,7,6,6,65,Windows,8,5,Yes,7,Yes,Yes,Yes
+10/25/2023 12:30:12,11th,Grafton,Biochemistry,4.9,6,0,10,5,123,Windows,8,6,Yes,9,Yes,Yes,No
+10/25/2023 12:30:28,11th,Grafton,Engineering,4,6,7,7,10,75,Windows,9,7,Yes,5,No,No,No
+10/25/2023 12:31:48,11th,Grafton ,Biochemistry,4.57,6,1,8,6,N/A,macOS,9,7,No,3,No,No,Yes
+10/25/2023 12:33:07,11th,Tabb,Computer Science,4.78,6,4,9,7,N/A,macOS,9,7,Yes,8,Yes,Yes,Yes
+10/25/2023 12:33:20,11th,York,Biochemistry,4.5,6,1,7,5,N/A,Windows,7,8,Yes,4,Yes,No,No
+10/25/2023 12:33:22,11th,Grafton ,Computer Science,4.3,4,2,7,7,49,Windows,5,5,No,5,No,No,No
+10/25/2023 12:33:54,11th,Tabb,Engineering,4.4,7,2,7,7,50,Windows,6,9,Yes,5,Yes,No,No
+10/25/2023 12:34:11,11th,Smithfield ,Biochemistry,4.3,9,0,10,6,N/A,macOS,4,5,Yes,4,No,No,No
+10/25/2023 12:34:47,11th,Tabb,Engineering,4,5,7,8,9,N/A,Windows,7,10,Yes,6,Yes,No,No
+10/25/2023 12:35:36,11th,Warwick ,Engineering,4.4,5,1,6,5,40,macOS,5,10,Yes,7,No,No,No
+10/25/2023 12:36:48,11th,Warwick,Biochemistry,4.47,6,7,4,5,45,macOS,5,5,Yes,5,Yes,No,No
+10/25/2023 12:38:07,12th,Grafton,Engineering,4.904,6,0,7,7,99,macOS,4,4,Yes,8,Yes,No,No
+10/25/2023 12:40:42,11th,Warwick  ,Biochemistry,4.3,5,5,7,5,110,macOS,6,6,Yes,10,No,No,No
+10/25/2023 12:47:02,11th,Grafton ,Biochemistry,4.7,6,0,9,9,N/A,Windows,6,7,No,3,No,No,No
+10/25/2023 12:47:28,11th,Warwick ,Computer Science,4.57,5,0,10,5,72,macOS,7,7,No,4,No,Yes,Yes
+10/25/2023 12:48:09,11th,Warwick ,Biochemistry,4.3,4,1,8,5,40,Windows,7,7,No,4,Yes,No,No
+10/25/2023 12:52:39,11th,Grafton ,Engineering,4.7,7,7,9,5,N/A,macOS,4,4,Yes,5,Yes,No,No
+10/25/2023 13:11:19,11th,Smithfield ,Biochemistry,4.34,5,7,6,8,38,macOS,2,10,Yes,2,No,No,Yes
+10/26/2023 11:32:40,12th,Grafton,Computer Science,4.71,6,5,7,3,80,Windows,6,4,No,5,Yes,No,No

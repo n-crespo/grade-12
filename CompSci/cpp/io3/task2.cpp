@@ -22,4 +22,11 @@ int main() {
   cout << "This costs this much: $" << fixed << setprecision(2)
        << price * produced << endl;
 }
-/* HACK */
+/*
+ NOTE: THis is testing folke's todo-comments neovim plugin
+HACK: This is a hack
+FIX: alskdnalsk
+PERF: this sucks and is slow
+WARNING: THIS IS BAD
+TODO: Fix everything
+*/

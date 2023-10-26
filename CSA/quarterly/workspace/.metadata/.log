@@ -1,0 +1,332 @@
+!SESSION 2023-10-24 09:27:52.812 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=17.0.8
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.153
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is started
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.322
+!MESSAGE Main thread is waiting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.352
+!MESSAGE >> initialize
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.353
+!MESSAGE Initializing Java Language Server 1.9.0.202203031534
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.362
+!MESSAGE Static Commands: []
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.363
+!MESSAGE Non-Static Commands: [java.edit.organizeImports, java.project.refreshDiagnostics, java.project.import, java.navigate.openTypeHierarchy, java.project.removeFromSourcePath, java.project.listSourcePaths, java.project.resolveStackTraceLocation, java.project.getAll, java.project.isTestFile, java.project.getClasspaths, java.navigate.resolveTypeHierarchy, java.edit.stringFormatting, java.project.getSettings, java.project.updateSourceAttachment, java.project.upgradeGradle, java.project.resolveSourceAttachment, java.project.addToSourcePath]
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.366
+!MESSAGE Wait for AutoBuildOffJob start
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.368
+!MESSAGE Wait for AutoBuildOffJob end 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.368
+!MESSAGE Starting org.eclipse.m2e.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.368
+!MESSAGE Started org.eclipse.m2e.core 0ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.369
+!MESSAGE ProjectRegistryRefreshJob finished 1ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.370
+!MESSAGE Starting org.eclipse.buildship.core
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:54.381
+!MESSAGE Started org.eclipse.buildship.core 12ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:55.426
+!MESSAGE LoadingGradleVersionJob finished 1045ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:55.450
+!MESSAGE Creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:55.559
+!MESSAGE Finished creating the Java project jdt.ls-java-project
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:55.634
+!MESSAGE >> initialized
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.219
+!MESSAGE Workspace initialized in 791ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.306
+!MESSAGE >> initialization job finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.310
+!MESSAGE >> workspace/didChangeConfiguration
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.343
+!MESSAGE >> New configuration: {java=[]}
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.346
+!MESSAGE >> document/didOpen
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.495
+!MESSAGE >> build jobs finished
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.501
+!MESSAGE >> registerWatchers'
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.501
+!MESSAGE >> watchers registered
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.852
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:56.998
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.668
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.768
+!MESSAGE begin problem for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.770
+!MESSAGE 1 problems reported for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.777
+!MESSAGE Validated 1. Took 328 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.817
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:57.935
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:58.067
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:58.325
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:58.632
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:58.814
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:58.940
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.077
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.337
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.370
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.374
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.378
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.426
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.428
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:27:59.451
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:00.862
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:00.870
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:00.873
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:00.881
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.056
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.162
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.164
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.166
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.223
+!MESSAGE Reconciled 1. Took 5 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.697
+!MESSAGE begin problem for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.699
+!MESSAGE Duplicate local variable song is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.703
+!MESSAGE Cannot make a static reference to the non-static method printChorus(String) from the type Song is of type StaticMethodRequested
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.705
+!MESSAGE 4 problems reported for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.708
+!MESSAGE Validated 1. Took 83 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.799
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.809
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.810
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.812
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.812
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.814
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.816
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.828
+!MESSAGE Reconciled 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.838
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:01.963
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.047
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.270
+!MESSAGE begin problem for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.272
+!MESSAGE Duplicate local variable song is of type RedefinedLocal
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.274
+!MESSAGE Cannot make a static reference to the non-static method printChorus(String) from the type Song is of type StaticMethodRequested
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.275
+!MESSAGE 4 problems reported for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:02.276
+!MESSAGE Validated 1. Took 45 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.059
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.061
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.077
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.260
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.514
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.516
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.523
+!MESSAGE >> document/completion
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.530
+!MESSAGE Reconciled 1. Took 2 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.574
+!MESSAGE Completion request completed
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.659
+!MESSAGE >> document/resolveCompletionItem
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.728
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.993
+!MESSAGE begin problem for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.994
+!MESSAGE 1 problems reported for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:03.994
+!MESSAGE Validated 1. Took 13 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:06.485
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:06.486
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.027
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.027
+!MESSAGE >> document/didChange
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.030
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.031
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.031
+!MESSAGE >> document/documentHighlight
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.087
+!MESSAGE Reconciled 1. Took 1 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.228
+!MESSAGE >> textDocument/semanticTokens/full
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.479
+!MESSAGE >> document/formatting
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.506
+!MESSAGE >> document/willSaveWaitUntil
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.512
+!MESSAGE >> document/didSave
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.528
+!MESSAGE begin problem for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.528
+!MESSAGE 1 problems reported for /Song.java
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:28:07.528
+!MESSAGE Validated 1. Took 9 ms
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:29:36.702
+!MESSAGE >> shutdown
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:29:36.706
+!MESSAGE >> exit
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:29:36.716
+!MESSAGE Shutdown received... waking up main thread
+
+!ENTRY org.eclipse.jdt.ls.core 1 0 2023-10-24 09:29:36.719
+!MESSAGE class org.eclipse.jdt.ls.core.internal.JavaLanguageServerPlugin is stopping:
