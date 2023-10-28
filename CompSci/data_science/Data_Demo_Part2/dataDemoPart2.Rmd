@@ -13,19 +13,20 @@ knitr::opts_chunk$set(echo = TRUE)
 library(dplyr)
 setwd("C:/Users/nicol/Downloads/")
 df <- read.table("classNoMissNoText.csv",
-                 sep = ",",
-                 header=TRUE,
-                 stringsAsFactors = FALSE)
+  sep = ",",
+  header = TRUE,
+  stringsAsFactors = FALSE
+)
 
-df.dplyr <- read.table("classNoMissNoText.csv",
-                 sep = ",",
-                 header=TRUE,
-                 stringsAsFactors = FALSE)
+df_dplyr <- read.table("classNoMissNoText.csv",
+  sep = ",",
+  header = TRUE,
+  stringsAsFactors = FALSE
+)
 ```
 ## 1
 ```{r}
 df$age[4]
-
 ```
 
 ## 2
@@ -45,8 +46,8 @@ df$expGrade[10]
 ```
 ## 5
 ```{r}
-df[2,]
-df[,2]
+df[2, ]
+df[, 2]
 ```
 
 ## 6
@@ -64,11 +65,13 @@ class(df$expGrade)
 class(df)
 class(df$siblings)
 ```
+
 ## 9 
 ```{r}
 siblings_square <- df$siblings^2
 siblings_square
 ```
+
 ## 10
 ```{r}
 df$siblingsInt <- as.integer(df$siblings)
@@ -99,7 +102,7 @@ df$ageScale
 ```{r}
 df_dplyr <- df.dplyr %>%
   mutate(siblingsInt = as.integer(siblings))
-  mutate(ageScale = age/max(age))
+mutate(ageScale = age / max(age))
 View(df_dplyr)
 ```
 
