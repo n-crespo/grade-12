@@ -1,0 +1,99 @@
+---
+title: ""
+author: ""
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+High Dimensional Visualization Part 2 
+======================================
+
+```{r}
+dat <- read.csv("classNoMissNoText")
+
+library(scatterplot3d)
+library(readr)
+library(ggplot2)
+library(MASS)
+library(dplyr)
+
+
+indVars3 <- which(names(dat) %in%
+                  c("csLove", "mathLove", "statisticsLove")) 
+
+
+```
+
+
+
+# high dimensional visualization part 2
+
+## visualize 3 variables in a three-dimensional graph
+
+now, we use the library, `scatterplot3d`.
+
+1. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and `statisticslove`.
+
+recall the function which() from a previous lab. it is similar to == in that
+both == and which() compare r objects. however, unlike ==, which() compares
+sets and outputs indices. in this case, `which(names(dat) %in%
+c("cslove","mathlove","statisticslove"))` returns the index of 14 the variables
+with a name in the set "cslove","mathlove","statisticslove". check for
+yourself: for columns 17, 18, 19 in `dat`, what are the variable names? • the
+argument angle in `scatterplot3d()` changes the direction at which we observed
+the 3d-scatterplot.
+
+2. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and
+   `statisticslove` with the angle argument set to 25.
+3. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and
+   `statisticslove` with the angle argument set to 70.
+4. in your opinion, are some angles better than other angles for visualizing
+   the data? why or why not?
+5. make an insight about the data using the 3d-scatterplot.
+
+## parallel plots
+
+7. install (but do not put `install.packages` in rmarkdown) and use the `mass`
+   package in your rmarkdown file.
+8. create a parallel plot using the variables `cslove`, `mathlove`, and
+   `statisticslove`.
+9. what does each line in the parallel plot represent?
+10. do this again, but this time select `studyrate`, `sleeprate`,
+    `exerciserate`, and `anticsalary`.
+
+one challenge with parallel plots is separating one observation from another in
+the graph. to overcome this challenge, color-coding the lines can help. for
+example, create a different color of the rainbow for each observation using the
+function, rainbow()`.
+
+11. do the previous two plots, but this time put ainbow(n)` instead of "black".
+12. make an insight about the graph that contains `cslove`, `mathlove`, and
+    `statisticslove`.
+
+## visualize all quantitative variables in a two-dimensional graph
+
+we can only do parallel plots with quantitative data. there's no way to make
+a parallel plot unless all of the data being used to generate it is
+quantitative. we can put a categorical/qualitative variable in the plot for
+added color, but the parallel plot itself must be quantitative.
+
+13. find out the different types of variables that are in the dataset using the
+    `sapply()` function.
+14. what are the different types of classes present in the dataset?
+15. knowing this, subset only the quantitative data.
+16. create a parallel plot using all of the quantitative variables in the
+    dataset.
+17. make an insight about the data using this parallel plot.
+18. from all of the graphs you have done for part 1 and part 2, put 9 graphs in
+    a 3x3 grid using the `par(mfrow(3,3))`. you can have two parallel plots,
+    but all others must be different.
+19. what was the maximum number of visualizations you created?
+20. what was the maximum number of variables you summarized in visualizations?
+21. what was the maximum number of observations you summarized in
+    visualizations?
