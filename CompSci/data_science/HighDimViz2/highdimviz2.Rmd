@@ -14,24 +14,6 @@ knitr::opts_chunk$set(echo = TRUE)
 High Dimensional Visualization Part 2 
 ======================================
 
-```{r}
-dat <- read.csv("classNoMissNoText")
-
-library(scatterplot3d)
-library(readr)
-library(ggplot2)
-library(MASS)
-library(dplyr)
-
-
-indVars3 <- which(names(dat) %in%
-                  c("csLove", "mathLove", "statisticsLove")) 
-
-
-```
-
-
-
 # high dimensional visualization part 2
 
 ## visualize 3 variables in a three-dimensional graph
@@ -49,12 +31,62 @@ yourself: for columns 17, 18, 19 in `dat`, what are the variable names? • the
 argument angle in `scatterplot3d()` changes the direction at which we observed
 the 3d-scatterplot.
 
+```{r}
+dat <- read.csv("classNoMissNoText.csv")
+
+library(scatterplot3d)
+library(readr)
+library(ggplot2)
+library(MASS)
+library(dplyr)
+
+
+ind_vars3 <- which(names(dat) %in%
+  c("csLove", "mathLove", "statisticsLove")) # nolint
+scatterplot3d(dat[, ind_vars3],
+  main = "3 Vars, 3 Dim Graph",
+  pch = 16,
+  xlab = "Love of CS",
+  ylab = "Love of Math",
+  zlab = "Love of Stats"
+)
+```
+
 2. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and
    `statisticslove` with the angle argument set to 25.
+```{r}
+scatterplot3d(dat[, ind_vars3],
+  main = "3 Vars, 3 Dim Graph",
+  pch = 16,
+  angle = 35,
+  xlab = "Love of CS",
+  ylab = "Love of Math",
+  zlab = "Love of Stats"
+)
+```
+
+
 3. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and
    `statisticslove` with the angle argument set to 70.
+
+```{r}
+scatterplot3d(dat[, ind_vars3],
+  main = "3 Vars, 3 Dim Graph",
+  pch = 16,
+  angle = 70,
+  xlab = "Love of CS",
+  ylab = "Love of Math",
+  zlab = "Love of Stats"
+)
+```
+
 4. in your opinion, are some angles better than other angles for visualizing
    the data? why or why not?
+
+   If there is a lot of data that has the same value for one variable (they
+   look like they are behind each other), adjusting the angle can let you see
+   it from the front perspective
+
 5. make an insight about the data using the 3d-scatterplot.
 
 ## parallel plots
@@ -64,8 +96,36 @@ the 3d-scatterplot.
 8. create a parallel plot using the variables `cslove`, `mathlove`, and
    `statisticslove`.
 9. what does each line in the parallel plot represent?
+
+   Each line in the parallel plot represents an observation or row in the
+   dataset.
+
+```{r}
+sub_dat <- dat %>%
+  dplyr::select(c("csLove", "mathLove", "statisticsLove", "exerciseRate"))
+parcoord(sub_dat,
+  col = "black",
+  lty = 1,
+  var.label = TRUE,
+  main = "4 Vars, 2-Dim Graph"
+)
+```
+
+
 10. do this again, but this time select `studyrate`, `sleeprate`,
     `exerciserate`, and `anticsalary`.
+
+``` {r}
+sub_dat <- dat %>%
+  dplyr::select(c("studyRate", "sleepRate", "exerciseRate", "anticSalary"))
+parcoord(sub_dat,
+  col = "black",
+  lty = 1,
+  var.label = TRUE,
+  main = "4 Vars, 2-Dim Graph"
+)
+```
+
 
 one challenge with parallel plots is separating one observation from another in
 the graph. to overcome this challenge, color-coding the lines can help. for
@@ -73,27 +133,105 @@ example, create a different color of the rainbow for each observation using the
 function, rainbow()`.
 
 11. do the previous two plots, but this time put ainbow(n)` instead of "black".
+
+``` {r}
+sub_dat <- dat %>%
+  dplyr::select(c("studyRate", "sleepRate", "exerciseRate", "anticSalary"))
+parcoord(sub_dat,
+  col = rainbow(nrow(sub_dat)),
+  lty = 1,
+  var.label = TRUE,
+  main = "4 Vars, 2-Dim Graph"
+)
+```
+
+```{r}
+sub_dat <- dat %>%
+  dplyr::select(c("csLove", "mathLove", "statisticsLove", "exerciseRate"))
+parcoord(sub_dat,
+  col = rainbow(nrow(sub_dat)),
+  lty = 1,
+  var.label = TRUE,
+  main = "4 Vars, 2-Dim Graph"
+)
+```
+
 12. make an insight about the graph that contains `cslove`, `mathlove`, and
-    `statisticslove`.
+`statisticslove`.
+
+The graph that contains csLove, mathLove, and statisticsLove is that there is a group of people that loves CS, hates math, and loves statistics. 
 
 ## visualize all quantitative variables in a two-dimensional graph
 
-we can only do parallel plots with quantitative data. there's no way to make
+We can only do parallel plots with quantitative data. There's no way to make
 a parallel plot unless all of the data being used to generate it is
-quantitative. we can put a categorical/qualitative variable in the plot for
+quantitative. We can put a categorical/qualitative variable in the plot for
 added color, but the parallel plot itself must be quantitative.
 
-13. find out the different types of variables that are in the dataset using the
+13. Find out the different types of variables that are in the dataset using the
     `sapply()` function.
-14. what are the different types of classes present in the dataset?
-15. knowing this, subset only the quantitative data.
-16. create a parallel plot using all of the quantitative variables in the
+
+```{r}
+sapply(dat, class)
+```
+
+14. What are the different types of classes present in the dataset?
+
+Numeric, integer, character
+
+15. Knowing this, subset only the quantitative data.
+
+```{r}
+numeric_dat <- dat %>% select_if(is.numeric)
+```
+
+16. Create a parallel plot using all of the quantitative variables in the
     dataset.
-17. make an insight about the data using this parallel plot.
-18. from all of the graphs you have done for part 1 and part 2, put 9 graphs in
-    a 3x3 grid using the `par(mfrow(3,3))`. you can have two parallel plots,
+
+``` {r}
+parcoord(numeric_dat,
+  col = rainbow(nrow(numeric_dat)),
+  lty = 1,
+  var.label = TRUE,
+  main = "variable, 2 dimensional graph"
+)
+```
+
+17. Make an insight about the data using this parallel plot.
+
+One insight that can be made from this parallel plot is that there is a very
+large number of observations. Also very few people have a low love for pets and
+the average number of states visited is fairly low. 
+
+18. From all of the graphs you have done for part 1 and part 2, put 9 graphs in
+    a 3x3 grid using the `par(mfrow(3,3))`. You can have two parallel plots,
     but all others must be different.
-19. what was the maximum number of visualizations you created?
-20. what was the maximum number of variables you summarized in visualizations?
-21. what was the maximum number of observations you summarized in
+
+```{r}
+sports_dat <- dat %>% select(c("athlete", "health", "sleepRate"))
+parcoord(sports_dat,
+  col = rainbow(nrow(sports_dat)),
+  lty = 1,
+  var.label = TRUE,
+  main = "variable, 2 dimensional graph"
+)
+
+tech_dat <- dat %>% select(c("macLove", "csLove", "year"))
+parcoord(tech_dat,
+  col = rainbow(nrow(tech_dat)), # nolint: indentation_linter.
+  lty = 1,
+  var.label = TRUE,
+  main = "variable, integer graph")
+
+par(mfrow = c(3, 3))
+```
+
+19. What was the maximum number of visualizations you created?
+
+
+20. What was the maximum number of variables you summarized in visualizations?
+
+
+21. What was the maximum number of observations you summarized in
     visualizations?
+
