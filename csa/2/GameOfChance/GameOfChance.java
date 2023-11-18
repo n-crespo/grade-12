@@ -7,7 +7,7 @@ public class GameOfChance {
     System.out.println("***WELCOME***");
     System.out.println("Let's see if you won...");
 
-    System.out.println("What is your guess on the dice roll? ");
+    System.out.println("What is your guess on the dice roll? (1-6) ");
     int diceGuess = scan.nextInt();
 
     System.out.println("What is your guess on the coin flip, Heads (1) or Tails (2)? ");
@@ -16,10 +16,11 @@ public class GameOfChance {
     System.out.println("What is your guess on the spinner, [r]ed, [g]reen, [b]lue, or [y]ellow? ");
     String spinnerGuess = scan.next();
 
-    System.out.println("you guessed: " + diceGuess + "|" + coinGuess + "|" + spinnerGuess);
+    // System.out.println("you guessed: " + diceGuess + "|" + coinGuess + "|" +
+    // spinnerGuess);
 
     int diceReal = (int) (Math.random() * 6) + 1;
-    System.out.println("You rolled a " + diceReal);
+    System.out.println("\nYou rolled a " + diceReal);
 
     int coinToss = (int) (Math.random() * 2);
     int coinResult = 0;
@@ -50,20 +51,31 @@ public class GameOfChance {
     }
 
     int total = 0;
+    System.out.println();
     if (coinGuess == coinResult) {
-      System.out.println("You got the coin correct.");
+      System.out.println("You got the coin toss correct.");
       total++;
     }
     if (spinnerGuess.equals(spinnerResult)) {
-      System.out.println("You got the spin correct");
+      System.out.println("You got the spinner color correct");
       total++;
 
     }
     if (diceGuess == diceReal) {
-      System.out.println("You got the dice correct");
+      System.out.println("You got the dice roll correct");
       total++;
     }
-    System.out.println("You got " + total + " guesses correct. ");
-    System.out.println("you guessed: " + diceGuess + "|" + coinGuess + "|" + spinnerGuess);
+    // System.out.println("You got " + total + " guess(es) correct. ");
+    if (total == 3) {
+      System.out.println("Congrats! You got all guesses correct.");
+    } else if (total == 0) {
+      System.out.println("Sorry, you somehow managed to get NOTHING correct.");
+    } else if (total == 1 || total == 2) {
+      System.out.println("Congrats... I guess. You can do better!");
+
+    }
+    // System.out.println("you guessed: " + diceGuess + "|" + coinGuess + "|" +
+    // spinnerGuess);
+    scan.close();
   }
 }
