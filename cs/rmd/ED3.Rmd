@@ -71,12 +71,12 @@ In the output of kmeans() you can see AL the output of the algorithm. The most i
 
 The function kmeans() names some of its outputs as follows:
 
-Analogous uses of $:
+Analogous uses of `$`:
 
-Access the variable, petLove from the data.frame object df using df$petLove.
-Access the cluster assignments from th object km3, via the code km3$cluster
+Access the variable, petLove from the data.frame object df using `df$petLove.`
+Access the cluster assignments from th object km3, via the code `km3$cluster`
 
-11. As previously stated, the component cluster in the km3 object lists the cluster assignmetns for each observation in the dataset. What are the unique values tores in km3$cluster?
+11. As previously stated, the component cluster in the km3 object lists the cluster assignmetns for each observation in the dataset. What are the unique values tores in `km3$cluster?`
 12. Plot extrovert and petLove again, but this time with k-means cluster assignments. Use the col argument to color the points by cluster assignment.
 13. What do you see? Do you see any clusters? If so, how many? If not, why not?
 14. Do the clusters make sense? Why or why not? If not, what might you do to create clusters that do make sense?
