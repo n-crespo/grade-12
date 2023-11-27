@@ -54,6 +54,7 @@ scatterplot3d(dat[, ind_vars3],
 
 2. create a 3d-scatterplot using the variables `cslove`, `mathlove`, and
    `statisticslove` with the angle argument set to 25.
+
 ```{r}
 scatterplot3d(dat[, ind_vars3],
   main = "3 Vars, 3 Dim Graph",
