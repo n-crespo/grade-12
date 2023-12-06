@@ -5,7 +5,7 @@ public class SlotMachine {
     int wallet = 120;
     Scanner scan = new Scanner(System.in);
     String answer = "p";
-    while (answer == "p") {
+    while (true) {
       wallet -= 20;
       int matches = 0;
       int num1 = (int) (Math.random() * 10);
@@ -36,9 +36,12 @@ public class SlotMachine {
       System.out.println("Balance = " + wallet);
       System.out.print("Type p to play again (for $20), or q to quit: ");
       answer = scan.nextLine();
-      if (answer == "p") {
+      if (answer.equals("p")) {
         wallet -= 20;
-      } else if (answer == "q") {
+      } else if (answer.equals("q")) {
+        break;
+      } else {
+        System.out.println("Something went wrong...");
         break;
       }
     }
