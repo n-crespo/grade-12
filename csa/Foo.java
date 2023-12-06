@@ -1,12 +1,15 @@
 public class Foo {
   public static void main(String[] args) {
-    int count = 0;
-    for (int x = 0; x < 4; x++) {
-      for (int y = x; y < 4; y++) {
-        count++;
+    String s = "It seems impossible until it's not.";
+    String target = "o";
 
-      }
+    int index = s.indexOf(target);
+
+    while (index >= 0) {
+      System.out.println("Location: " + index);
+      s = s.substring(0, index) + s.substring(index + 1);
+      index = s.indexOf(target);
     }
-    System.out.println(count);
+    System.out.println(s);
   }
 }
