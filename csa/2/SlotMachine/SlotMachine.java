@@ -5,8 +5,8 @@ public class SlotMachine {
     int wallet = 120;
     Scanner scan = new Scanner(System.in);
     String answer = "p";
+    wallet -= 20;
     while (true) {
-      wallet -= 20;
       int matches = 0;
       int num1 = (int) (Math.random() * 10);
       System.out.print("\n[" + num1 + "] ");
