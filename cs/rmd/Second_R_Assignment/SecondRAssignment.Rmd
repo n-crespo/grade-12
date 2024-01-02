@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 1. Add 2 + 2
 
 ```{r addition}
-2+2
+2 + 2
 ```
 
 2. Create a list `dat` that goes from 1 to 10
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = TRUE)
 4. Find the mean of `dat`
 
 ```{r dat}
-# dat <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) #this also works
+# dat <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10) #this also works # nolint
 (dat <- seq(1, 10, 1))
 mean(dat)
 ```
@@ -29,8 +29,8 @@ mean(dat)
 5. Create another list called `dat2` that takes the sine of each 
 individual element of dat multiplied by $\frac{\pi}{2}$.
 ```{r dat2}
-dat2 <- sin(dat*(pi/4))
-dat2  
+dat2 <- sin(dat * (pi / 4))
+dat2
 ```
 
 
@@ -38,11 +38,13 @@ dat2
 7. Plot `dat2` vs `dat` in a scatterplot
 8. Plot `dat2` vs `dat` in a line graph
 ```{r Plot dat2 vs. dat}
-plot(x = dat, y = dat2,
-     main = "Title of scatterplot",
-     xlab = "X-axis title",
-     ylab = "Y-axis title")
-plot(dat, dat2, type="l")
+plot(
+  x = dat, y = dat2,
+  main = "Title of scatterplot",
+  xlab = "X-axis title",
+  ylab = "Y-axis title"
+)
+plot(dat, dat2, type = "l")
 ```
 
 9. Create a list called `dat3` with 5 A’s and 5 B’s

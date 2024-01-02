@@ -38,12 +38,12 @@ mean(df_particular$petLove)
 mean(df_particular$extrovert)
 
 # Should be near zero
-mean(df_particular_scaled[,1])
-mean(df_particular_scaled[,2])
+mean(df_particular_scaled[, 1])
+mean(df_particular_scaled[, 2])
 
 # should be 1
-var(df_particular_scaled[,2])
-var(df_particular_scaled[,1])
+var(df_particular_scaled[, 2])
+var(df_particular_scaled[, 1])
 ```
 
 
