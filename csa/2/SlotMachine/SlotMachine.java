@@ -45,6 +45,8 @@ public class SlotMachine {
         break;
       }
     }
+    String a = scan.next();
+    System.out.println(a);
     scan.close();
 
   }
