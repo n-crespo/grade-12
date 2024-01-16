@@ -18,4 +18,5 @@ public class GraduationDate {
     System.out.println("Days: " + days);
 
   }
+  // this is a test
 }
