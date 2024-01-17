@@ -49,6 +49,8 @@ public class Hangman {
       hiddenWord += "*";
     }
 
+    System.out.println("they myster word is " + mysteryWord);
+
     while (guesses > 0) {
       System.out.println("Here's what you have so far: " + hiddenWord);
       System.out.println("You have " + guesses + " guesses left. ");
@@ -67,35 +69,42 @@ public class Hangman {
       guess = tempInput.charAt(0);
 
       boolean guessInWord = false;
-      while (guesses > 0) {
-        while (guessInWord == false) {
+      while (guessInWord == false) {
 
-          // loop over mystery word
-          for (int i = 0; i < mysteryWord.length(); i++) {
+        // loop over mystery word
+        for (int i = 0; i < mysteryWord.length(); i++) {
 
-            // if guess is the same as letter in mystery word...
-            if (guess == mysteryWord.charAt(i)) {
-              // update hidden word
-              tempWord = hiddenWord;
-              hiddenWord = "";
-              // loop over hidden word
-              for (int j = 0; j < tempWord.length(); j++) {
-                if (j == i) {
-                  hiddenWord += mysteryWord.charAt(i);
-                } else if (tempWord.charAt(j) != '*') {
-                  hiddenWord += tempWord.charAt(j);
-                } else {
-                  hiddenWord += "*";
-                }
-
+          // if guess is the same as letter in mystery word...
+          if (guess == mysteryWord.charAt(i)) {
+            // update hidden word
+            tempWord = hiddenWord;
+            hiddenWord = "";
+            // loop over hidden word
+            for (int j = 0; j < tempWord.length(); j++) {
+              if (j == i) {
+                hiddenWord += mysteryWord.charAt(i);
+              } else if (tempWord.charAt(j) != '*') {
+                hiddenWord += tempWord.charAt(j);
+              } else {
+                hiddenWord += "*";
               }
-              System.out.println("CORRECT!!!");
-              guessInWord = true;
+
             }
+            System.out.println("CORRECT!!!");
+            guessInWord = true;
           }
-          guesses--;
-          System.out.println("I'm sorry...");
         }
+      }
+      if (!guessInWord) {
+        System.out.println("I'm sorry, that isn't in the word.");
+        guesses--;
+      }
+    }
+    for (int i = 0; i < hiddenWord.length(); i++) {
+      if (hiddenWord.charAt(i) == '*') {
+        System.out.println("------ GAME OVER ------");
+        System.out.println("Better luck next time...");
+
       }
     }
   }
