@@ -40,7 +40,7 @@ public class Hangman {
     boolean guessInWord = false;
     Scanner scan = new Scanner(System.in);
     boolean wordGuessed = false;
-    boolean starsLeft;
+    int starCount;
 
     // make hidden word string same length as mystery Word
     String hiddenWord = "";
@@ -48,16 +48,14 @@ public class Hangman {
       hiddenWord += "*";
     }
 
-    // NOTE: DELETE THIS LATER (show word to be guessed)
-    System.out.println("the mystery word is " + mysteryWord);
-
     // continue until all guesses are done or word is guessed
-    while (guesses > 0 || wordGuessed == true) {
+    while (guesses > 0 && wordGuessed == false) {
       // print current progress
+      System.out.println("==========================================");
+      System.out.println(guesses + " guesses remain.");
       System.out.println("Here's what you have so far: " + hiddenWord);
-      System.out.println("You have " + guesses + " guesses left. ");
       if (guesses <= 4) {
-        System.out.print("You have guessed: ");
+        System.out.print("You've guessed: ");
         for (int i = 0; i < guessedLetters.length(); i++) {
           System.out.print(guessedLetters.charAt(i) + " ");
         }
@@ -67,6 +65,7 @@ public class Hangman {
       // give me a char of input
       System.out.print("\nWhat letter would you like to guess? ");
       tempInput = scan.next();
+      tempInput = tempInput.toLowerCase();
       guess = tempInput.charAt(0);
       guessedLetters += guess;
 
@@ -81,34 +80,35 @@ public class Hangman {
           // update hidden word
           tempWord = hiddenWord;
           hiddenWord = "";
-          starsLeft = false;
+          starCount = 0;
           for (int j = 0; j < tempWord.length(); j++) {
             if (j == i) {
               hiddenWord += mysteryWord.charAt(i);
             } else if (tempWord.charAt(j) != '*') {
               hiddenWord += tempWord.charAt(j);
             } else {
-              starsLeft = true;
+              // un-guessed letters still in word
+              starCount += 1;
               hiddenWord += "*";
             }
           }
-          if (!starsLeft) {
+          if (starCount == 0) {
             wordGuessed = true;
           }
         }
       }
       if (!guessInWord) {
-        System.out.println("I'm sorry, that isn't in the word.\n");
+        System.out.print("                                      That isn't in the word.\n");
         guesses--;
       } else if (guessInWord) {
-        System.out.println("CORRECT!!!");
+        System.out.print("                                      CORRECT!!!\n");
       }
     }
     if (wordGuessed == true) {
-      System.out.println("Congrats! You guessed the word. ");
+      System.out.println("==================YOU WON!!===============");
     } else {
-      System.out.println("------ GAME OVER ------");
-      System.out.println("Better luck next time...");
+      System.out.println("==================GAME OVER===============");
+      System.out.println("The word was: " + mysteryWord);
     }
     scan.close();
   }
