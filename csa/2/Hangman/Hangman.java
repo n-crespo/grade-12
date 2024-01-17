@@ -1,5 +1,7 @@
 import java.util.Scanner;
 
+import javax.swing.text.DefaultStyledDocument.ElementSpec;
+
 public class Hangman {
 
   public static void main(String[] args) {
@@ -9,7 +11,6 @@ public class Hangman {
 
     System.out.println("Welcome to Hangman! You have to guess the mystery word");
     System.out.println("in 5 guesses or less. ");
-    System.out.println("Here's what you have so far: ");
 
     String mysteryWord;
     if (randomNumber == 1) {
@@ -40,6 +41,7 @@ public class Hangman {
     char guessChar;
 
     String guessedLetters = "";
+    String tempWord;
 
     // make hidden word string
     String hiddenWord = "";
@@ -62,20 +64,33 @@ public class Hangman {
       // give me a char
       guessChar = guessString.charAt(0);
 
-      for (int i = 0; i < mysteryWord.length(); i++) {
-        // if guess is correct
-        if (guessChar == mysteryWord.charAt(i)) {
-          System.out.println("CORRECT!!!");
-          for (int j = 0; j < mysteryWord.length(); j++) {
-            hiddenWord += "*";
+      boolean guessedCorrect = false;
+      while (guessedCorrect == false) {
+        {
+          for (int i = 0; i < mysteryWord.length(); i++) {
+            // if guess is correct
+            if (guessChar == mysteryWord.charAt(i)) {
+              // update hidden word
+              tempWord = hiddenWord;
+              hiddenWord = "";
+              for (int j = 0; j < hiddenWord.length(); j++) {
+                if (j == i) {
+                  hiddenWord += mysteryWord.charAt(i);
+                } else if (tempWord.charAt(j) != '*') {
+                  hiddenWord += tempWord.charAt(j);
+                } else {
+                  hiddenWord += "*";
+                }
+
+                System.out.println("CORRECT!!!");
+                guessedCorrect = true;
+              }
+            }
           }
         }
-        System.out.println("I'm sorry...");
         guesses -= 1;
-
+        System.out.println("I'm sorry...");
       }
-
     }
-
   }
 }
