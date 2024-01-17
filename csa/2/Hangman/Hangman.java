@@ -40,7 +40,7 @@ public class Hangman {
     boolean guessInWord = false;
     Scanner scan = new Scanner(System.in);
     boolean wordGuessed = false;
-    boolean starsLeft = false;
+    boolean starsLeft;
 
     // make hidden word string same length as mystery Word
     String hiddenWord = "";
@@ -57,51 +57,51 @@ public class Hangman {
       System.out.println("Here's what you have so far: " + hiddenWord);
       System.out.println("You have " + guesses + " guesses left. ");
       if (guesses <= 4) {
-        System.out.println("You have guessed: ");
+        System.out.print("You have guessed: ");
         for (int i = 0; i < guessedLetters.length(); i++) {
           System.out.print(guessedLetters.charAt(i) + " ");
         }
+        System.out.println();
       }
 
       // give me a char of input
-      System.out.print("What letter would you like to guess? ");
+      System.out.print("\nWhat letter would you like to guess? ");
       tempInput = scan.next();
       guess = tempInput.charAt(0);
+      guessedLetters += guess;
 
       guessInWord = false;
-
       // check if guess is in word
       for (int i = 0; i < mysteryWord.length(); i++) {
 
         // guess IS in word...
         if (guess == mysteryWord.charAt(i)) {
           guessInWord = true;
-          System.out.println("guess matches a letter in mystery word...");
 
           // update hidden word
           tempWord = hiddenWord;
           hiddenWord = "";
+          starsLeft = false;
           for (int j = 0; j < tempWord.length(); j++) {
             if (j == i) {
               hiddenWord += mysteryWord.charAt(i);
             } else if (tempWord.charAt(j) != '*') {
               hiddenWord += tempWord.charAt(j);
             } else {
-              wordGuessed = false;
               starsLeft = true;
               hiddenWord += "*";
             }
           }
-        }
-        if (!guessInWord) {
-          System.out.println("I'm sorry, that isn't in the word.");
-          guesses--;
-        } else if (guessInWord) {
-          System.out.println("CORRECT!!!");
+          if (!starsLeft) {
+            wordGuessed = true;
+          }
         }
       }
-      if (!starsLeft) {
-        wordGuessed = true;
+      if (!guessInWord) {
+        System.out.println("I'm sorry, that isn't in the word.\n");
+        guesses--;
+      } else if (guessInWord) {
+        System.out.println("CORRECT!!!");
       }
     }
     if (wordGuessed == true) {
