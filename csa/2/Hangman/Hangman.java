@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import javax.swing.text.DefaultStyledDocument.ElementSpec;
-
 public class Hangman {
 
   public static void main(String[] args) {
@@ -42,6 +40,7 @@ public class Hangman {
 
     String guessedLetters = "";
     String tempWord;
+    boolean guessInWord = false;
 
     // make hidden word string same length as mystery Word
     String hiddenWord = "";
@@ -49,7 +48,9 @@ public class Hangman {
       hiddenWord += "*";
     }
 
-    System.out.println("they myster word is " + mysteryWord);
+    System.out.println("the mystery word is " + mysteryWord);
+
+    boolean wordGuessed = false;
 
     while (guesses > 0) {
       System.out.println("Here's what you have so far: " + hiddenWord);
@@ -68,36 +69,44 @@ public class Hangman {
       tempInput = scan.next();
       guess = tempInput.charAt(0);
 
-      boolean guessInWord = false;
-      while (guessInWord == false) {
+      // find letter and update hidden word if needed
+      guessInWord = false;
+      // System.out.println("loop 1 entered");
 
-        // loop over mystery word
-        for (int i = 0; i < mysteryWord.length(); i++) {
-
-          // if guess is the same as letter in mystery word...
-          if (guess == mysteryWord.charAt(i)) {
-            // update hidden word
-            tempWord = hiddenWord;
-            hiddenWord = "";
-            // loop over hidden word
-            for (int j = 0; j < tempWord.length(); j++) {
-              if (j == i) {
-                hiddenWord += mysteryWord.charAt(i);
-              } else if (tempWord.charAt(j) != '*') {
-                hiddenWord += tempWord.charAt(j);
-              } else {
-                hiddenWord += "*";
-              }
-
+      // loop over mystery word
+      for (int i = 0; i < mysteryWord.length(); i++) {
+        // System.out.println("loop 2 entered");
+        // if guess is the same as letter in mystery word...
+        if (guess == mysteryWord.charAt(i)) {
+          System.out.println("guess matches a letter in mystery word...");
+          // update hidden word
+          tempWord = hiddenWord;
+          hiddenWord = "";
+          // loop over hidden word to update stars
+          for (int j = 0; j < tempWord.length(); j++) {
+            if (j == i) {
+              hiddenWord += mysteryWord.charAt(i);
+            } else if (tempWord.charAt(j) != '*') {
+              hiddenWord += tempWord.charAt(j);
+            } else {
+              wordGuessed = false;
+              hiddenWord += "*";
             }
-            System.out.println("CORRECT!!!");
-            guessInWord = true;
           }
+          guessInWord = true;
         }
       }
-      if (!guessInWord) {
-        System.out.println("I'm sorry, that isn't in the word.");
-        guesses--;
+      if (wordGuessed == true) {
+        System.out.println("Congrats! You guessed the word. ");
+      } else {
+        if (!guessInWord) {
+          System.out.println("I'm sorry, that isn't in the word.");
+          guesses--;
+        } else if (guessInWord) {
+          System.out.println("CORRECT!!!");
+          guessInWord = true;
+
+        }
       }
     }
     for (int i = 0; i < hiddenWord.length(); i++) {
@@ -107,5 +116,6 @@ public class Hangman {
 
       }
     }
+    scan.close();
   }
 }
