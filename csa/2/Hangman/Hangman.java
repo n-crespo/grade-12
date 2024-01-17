@@ -9,11 +9,11 @@ public class Hangman {
     Scanner scan = new Scanner(System.in);
     int randomNumber = (int) (Math.random() * 10) + 1;
 
-    System.out.println("Welcome to Hangman! You have to guess the mystery word");
-    System.out.println("in 5 guesses or less. ");
+    System.out.println("Welcome to Hangman! You have to guess the mystery word in 5 guesses or less.\n ");
 
     String mysteryWord;
-    if (randomNumber == 1) {
+    // get random number
+    if (randomNumber == 0) {
       mysteryWord = "elephant";
     } else if (randomNumber == 2) {
       mysteryWord = "symphony";
@@ -37,13 +37,13 @@ public class Hangman {
 
     int guesses = 5;
 
-    String guessString;
-    char guessChar;
+    String tempInput;
+    char guess;
 
     String guessedLetters = "";
     String tempWord;
 
-    // make hidden word string
+    // make hidden word string same length as mystery Word
     String hiddenWord = "";
     for (int i = 0; i < mysteryWord.length(); i++) {
       hiddenWord += "*";
@@ -52,28 +52,34 @@ public class Hangman {
     while (guesses > 0) {
       System.out.println("Here's what you have so far: " + hiddenWord);
       System.out.println("You have " + guesses + " guesses left. ");
-      System.out.println("Here are the letters you have guessed so far: ");
 
       // print guessed letters
-      for (int i = 0; i < guessedLetters.length(); i++) {
-        System.out.print(guessedLetters.charAt(i) + " ");
+      if (guesses <= 4) {
+        System.out.println("You have guessed: ");
+        for (int i = 0; i < guessedLetters.length(); i++) {
+          System.out.print(guessedLetters.charAt(i) + " ");
+        }
       }
-      System.out.print("What letter would you like to guess next? ");
-      guessString = scan.next();
 
-      // give me a char
-      guessChar = guessString.charAt(0);
+      // give me a char of input
+      System.out.print("What letter would you like to guess? ");
+      tempInput = scan.next();
+      guess = tempInput.charAt(0);
 
-      boolean guessedCorrect = false;
-      while (guessedCorrect == false) {
-        {
+      boolean guessInWord = false;
+      while (guesses > 0) {
+        while (guessInWord == false) {
+
+          // loop over mystery word
           for (int i = 0; i < mysteryWord.length(); i++) {
-            // if guess is correct
-            if (guessChar == mysteryWord.charAt(i)) {
+
+            // if guess is the same as letter in mystery word...
+            if (guess == mysteryWord.charAt(i)) {
               // update hidden word
               tempWord = hiddenWord;
               hiddenWord = "";
-              for (int j = 0; j < hiddenWord.length(); j++) {
+              // loop over hidden word
+              for (int j = 0; j < tempWord.length(); j++) {
                 if (j == i) {
                   hiddenWord += mysteryWord.charAt(i);
                 } else if (tempWord.charAt(j) != '*') {
@@ -82,14 +88,14 @@ public class Hangman {
                   hiddenWord += "*";
                 }
 
-                System.out.println("CORRECT!!!");
-                guessedCorrect = true;
               }
+              System.out.println("CORRECT!!!");
+              guessInWord = true;
             }
           }
+          guesses--;
+          System.out.println("I'm sorry...");
         }
-        guesses -= 1;
-        System.out.println("I'm sorry...");
       }
     }
   }
