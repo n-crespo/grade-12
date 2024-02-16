@@ -1,6 +1,6 @@
-#include "geometricShape.h"
 #ifndef RECTANGLE_H
 #define RECTANGLE_H
+#include "geometricShape.h"
 
 class Rectangle : public geometricShape {
 private:

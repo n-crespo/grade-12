@@ -9,7 +9,7 @@ private:
   string color;
 
 public:
-  void setColor(string newColor);
+  void setColor(string newColor) { color = newColor; };
   string getColor() const { return color; }
   geometricShape(string col = "None") { color = col; };
 };
