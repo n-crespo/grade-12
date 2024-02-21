@@ -17,7 +17,7 @@ public class FractionReducer {
       return;
     }
 
-    int i = Math.min(denominator, numerator) / 2;
+    int i = Math.min(denominator, numerator);
 
     while (i > 1) {
       if (numerator % i == 0 && denominator % i == 0) {
