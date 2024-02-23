@@ -16,36 +16,15 @@ for sublist in lst:
             if item != " ":
                 words.append(item)
 
-    print("nums ", nums)
-    print("words", words)
+    words = set(words)
 
-    for word in words:
-        checking = word
-        print("checking: ", checking)
-        for thing in words:
-            print(
-                f"{checking}  == {thing} is {checking == thing}, and words is {words.index(checking)} and thing is {words.index(thing)}"
-            )
-            if (thing == checking) and (words.index(checking) != temp.index(thing)):
-                print(f"removing {thing}")
-                words.remove(thing)
-                break
+    nums = set(nums)
 
     for w in words:
         print(w, end=" ")
 
-    # print("")
-    # for num in nums:
-    #     checking = num
-    #     for thing in nums:
-    #         if (thing == checking) and (words.index(checking) != words.index(thing)):
-    #             nums.remove(thing)
-    #             continue
-
-    # for n in nums:
-    #     print(n, end=" ")
-
-    # print("")
+    for n in nums:
+        print(n, end=" ")
 
     nums = []
     words = []
