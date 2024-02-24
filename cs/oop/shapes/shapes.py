@@ -53,7 +53,9 @@ class Rectangle(GeometricShape):
 
 
 if __name__ == "__main__":
+    print("making first circle...")
     circle = Circle(5, "Red")
+    print("making second rectangle...")
     rectangle = Rectangle(4, 6, "Blue")
 
     print(
