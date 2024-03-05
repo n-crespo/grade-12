@@ -9,7 +9,6 @@ public class Test {
     animals.add("deer");
     animals.set(2, "groundhog");
     animals.add(1, "mouse");
-
     System.out.println(animals.get(2) + " and " + animals.get(3));
   }
 }
