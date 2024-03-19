@@ -96,26 +96,30 @@ public class State {
     System.out.println("Choose the correct answer and get a point!");
     System.out.println();
 
+    int numCorrect = 0;
+
     // Q1 --------------------------------------------------------------------------
 
-    int correctIndex = (int) (Math.random() * 50);
+    int correctStateIndex = (int) (Math.random() * 50);
     System.out
-        .println("\nWhich of the following states has an abbreviation of " + states.get(correctIndex).getAbbreviation()
-            + "? ");
-    // get a random number 1-4
-    ArrayList<Integer> usedChoices = new ArrayList<Integer>();
-    usedChoices.add(correctIndex);
-    int numCorrect = 0;
+        .println(
+            "\nQ1: Which of the following states has an abbreviation of "
+                + states.get(correctStateIndex).getAbbreviation()
+                + "? ");
+
+    ArrayList<Integer> usedStateIndices = new ArrayList<Integer>();
+    usedStateIndices.add(correctStateIndex);
     int secretIndex = (int) (Math.random() * 4);
     for (int i = 0; i < 4; i++) {
+      // if the correct answer is being displayed, show it
       if (i == secretIndex) {
-        System.out.println(letters.get(i) + ". " + states.get(correctIndex).getName());
-      } else {
+        System.out.println(letters.get(i) + ". " + states.get(correctStateIndex).getName());
+      } else { // generate random answer choice otherwise
         int nextAnswerChoice = (int) (Math.random() * 50);
-        while (listContainsElement(usedChoices, nextAnswerChoice)) {
+        while (listContainsElement(usedStateIndices, nextAnswerChoice)) {
           nextAnswerChoice = (int) (Math.random() * 50);
         }
-        usedChoices.add(nextAnswerChoice);
+        usedStateIndices.add(nextAnswerChoice);
         System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
       }
     }
@@ -128,138 +132,151 @@ public class State {
       System.out.println("Yes! You got the first question correct! ");
       numCorrect++;
     } else {
-      System.out.println(
-          "You entered: " + answer + " and the correct answer is " + states.get(correctIndex).getAbbreviation());
-      System.out.println("The type of your answer is: " + answer.getClass());
-      System.out.println("The type of the correct answer is: " + states.get(correctIndex).getAbbreviation().getClass());
-      ;
       System.out.println("No! Sorry, the correct answer was " + letters.get(secretIndex) + ". ");
     }
 
     // Q2 ------------------------------------------------------------------------
 
-    System.out.println("\nOf the following states, which has the largest population?");
+    System.out.println("\nQ2: Of the following states, which has the largest population?");
 
-    usedChoices = new ArrayList<Integer>();
+    usedStateIndices = new ArrayList<Integer>();
+    // generate answer choices first
     for (int i = 0; i < 4; i++) {
       int nextAnswerChoice = (int) (Math.random() * 50);
-      while (listContainsElement(usedChoices, nextAnswerChoice)) {
+      while (listContainsElement(usedStateIndices, nextAnswerChoice)) {
         nextAnswerChoice = (int) (Math.random() * 50);
       }
-      usedChoices.add(nextAnswerChoice);
+      usedStateIndices.add(nextAnswerChoice);
       System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
     }
 
-    int max = states.get(usedChoices.get(0)).population;
-    int maxIndex = 0;
-    for (int i : usedChoices) {
-      if (states.get(i).population > max) {
-        maxIndex = i;
+    // set max state (correct answer) to first index by default
+    int correctIndex = usedStateIndices.get(0);
+    int optionIndex = 0;
+    for (int i : usedStateIndices) {
+      if (states.get(i).population > states.get(correctIndex).population) {
+        correctIndex = i;
+        optionIndex = usedStateIndices.indexOf(i);
+      }
     }
 
-    correctIndex = (int) (Math.random() * 50);
-    usedChoices.add(correctIndex);
-    secretIndex = maxIndex;
+    secretIndex = correctIndex;
 
     String answer2 = scan.nextLine();
     System.out.println();
-    if (answer2.equals(letters.get(secretIndex))) {
+    // System.out.println("Correct answer is: " + letters.get(optionIndex));
+    if (answer2.equals(letters.get(optionIndex))) {
       System.out.println("Yes! You got the second question correct! ");
       numCorrect++;
     } else {
-      System.out.println("No! Sorry, the correct answer was " + letters.get(secretIndex) + ". ");
+      System.out.println("No! Sorry, the correct answer was " + letters.get(optionIndex) + ". ");
     }
 
     // Q3 -----------------------------------------------------------------------
 
-    System.out.println("\nOf the following 4 states, which has the smallest population?");
-    usedChoices = new ArrayList<Integer>();
+    System.out.println("\nQ3: Of the following 4 states, which has the smallest population?");
 
-    usedChoices = new ArrayList<Integer>();
-    for (i = 0; i < 4; i++) {
+    usedStateIndices = new ArrayList<Integer>();
+    for (int i = 0; i < 4; i++) {
       int nextAnswerChoice = (int) (Math.random() * 50);
-      while (listContainsElement(usedChoices, nextAnswerChoice)) {
+      while (listContainsElement(usedStateIndices, nextAnswerChoice)) {
         nextAnswerChoice = (int) (Math.random() * 50);
       }
-      usedChoices.add(nextAnswerChoice);
+      usedStateIndices.add(nextAnswerChoice);
       System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
     }
 
-    int min = states.get(usedChoices.get(0)).population;
-    int minIndex = 0;
-    for (int choice : usedChoices) {
-      if (states.get(choice).population > min) {
-        minIndex = i;
-    }}
-    correctIndex = (int) (Math.random() * 50);
-    usedChoices.add(correctIndex);
-    secretIndex = minIndex;
+    correctIndex = usedStateIndices.get(0);
+    optionIndex = 0;
+    for (int choice : usedStateIndices) {
+      if (states.get(choice).population < states.get(correctIndex).population) {
+        correctIndex = choice;
+        optionIndex = usedStateIndices.indexOf(choice);
+      }
+    }
+
+    secretIndex = correctIndex;
+
     String answer3 = scan.nextLine();
-    if (answer3.equals(letters.get(secretIndex))) {
-    System.out.println("Yes! You got the third question correct! ");
-    numCorrect++;
+    System.out.println();
+    if (answer3.equals(letters.get(optionIndex))) {
+      System.out.println("Yes! You got the third question correct! ");
+      numCorrect++;
     } else {
-    System.out.println("No! Sorry, the correct answer was " + letters.get(secretIndex) + ". ");
+      System.out.println("No! Sorry, the correct answer was " + letters.get(optionIndex) + ". ");
     }
 
     // Q4 ------------------------------------------------------------------------
 
-    usedChoices = new ArrayList<Integer>();
-    correctIndex = (int) (Math.random() * 50);
-    usedChoices.add(correctIndex);
-    System.out.println("\nOf the following 4 states, which state is the largest in land size?");
-    secretIndex = (int) (Math.random() * 4);
-    for (i = 0; i < 4; i++) {
-      if (i == secretIndex) {
-        System.out.println(letters.get(i) + ". " + states.get(correctIndex).getName());
-      } else {
-        int nextAnswerChoice = (int) (Math.random() * 50);
-        while (listContainsElement(usedChoices, nextAnswerChoice)) {
-          nextAnswerChoice = (int) (Math.random() * 50);
-        }
-        usedChoices.add(nextAnswerChoice);
-        System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
+    System.out.println("\nQ4: Of the following states, which is the largest in land size?");
+
+    usedStateIndices = new ArrayList<Integer>();
+    for (int i = 0; i < 4; i++) {
+      int nextAnswerChoice = (int) (Math.random() * 50);
+      while (listContainsElement(usedStateIndices, nextAnswerChoice)) {
+        nextAnswerChoice = (int) (Math.random() * 50);
+      }
+      usedStateIndices.add(nextAnswerChoice);
+      System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
+    }
+
+    correctIndex = usedStateIndices.get(0);
+    optionIndex = 0;
+    for (int i : usedStateIndices) {
+      if (states.get(i).rank > states.get(correctIndex).rank) {
+        correctIndex = i;
+        optionIndex = usedStateIndices.indexOf(i);
       }
     }
 
+    secretIndex = correctIndex;
+
     String answer4 = scan.nextLine();
     System.out.println();
-    if (answer4.equals(letters.get(secretIndex))) {
-      System.out.println("Yes! You got the fourth question correct! ");
+    if (answer4.equals(letters.get(optionIndex))) {
+      System.out.println("Yes! You got the second question correct! ");
       numCorrect++;
     } else {
-      System.out.println("No! Sorry, the correct answer was " + letters.get(secretIndex) + ". ");
+      System.out.println("No! Sorry, the correct answer was " + letters.get(optionIndex) + ". ");
     }
 
     // Q5 -------------------------------------------------------------------------
 
-    usedChoices = new ArrayList<Integer>();
-    correctIndex = (int) (Math.random() * 50);
-    usedChoices.add(correctIndex);
-    System.out.println("\nOf the following 4 states, which state is the smallest in land size?");
-    secretIndex = (int) (Math.random() * 4);
+    System.out.println("\nQ5: Of the following 4 states, which state is the smallest in land size?");
+
+    usedStateIndices = new ArrayList<Integer>();
     for (int i = 0; i < 4; i++) {
-      if (i == secretIndex) {
-        System.out.println(letters.get(i) + ". " + states.get(correctIndex).getName());
-      } else {
-        int nextAnswerChoice = (int) (Math.random() * 50);
-        while (listContainsElement(usedChoices, (correctIndex + 2 * i) % 50)) {
-          nextAnswerChoice = (int) (Math.random() * 50);
-        }
-        System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
+      int nextAnswerChoice = (int) (Math.random() * 50);
+      while (listContainsElement(usedStateIndices, nextAnswerChoice)) {
+        nextAnswerChoice = (int) (Math.random() * 50);
+      }
+      usedStateIndices.add(nextAnswerChoice);
+      System.out.println(letters.get(i) + ". " + states.get(nextAnswerChoice).getName());
+    }
+
+    correctIndex = usedStateIndices.get(0);
+    optionIndex = 0;
+    for (int i : usedStateIndices) {
+      if (states.get(i).rank < states.get(correctIndex).rank) {
+        correctIndex = i;
+        optionIndex = usedStateIndices.indexOf(i);
       }
     }
 
+    secretIndex = correctIndex;
+
     String answer5 = scan.nextLine();
     System.out.println();
-    if (answer5.equals(letters.get(secretIndex))) {
+    if (answer5.equals(letters.get(optionIndex))) {
       System.out.println("Yes! You got the fifth question correct! ");
       numCorrect++;
     } else {
-      System.out.println("No! Sorry, the correct answer was " + letters.get(secretIndex) + ". ");
+      System.out.println("No! Sorry, the correct answer was " + letters.get(optionIndex) + ". ");
     }
 
-    System.out.println("Thank you for playing!\n Your score is: " + numCorrect);
+    // END SCORE ---------------------------------------------------------------
+
+    System.out.println("\nThank you for playing!\nYour score is: " + numCorrect + "/5");
 
     scan.close();
   }
