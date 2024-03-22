@@ -277,7 +277,6 @@ public class State {
     // END SCORE ---------------------------------------------------------------
 
     System.out.println("\nThank you for playing!\nYour score is: " + numCorrect + "/5");
-
     scan.close();
   }
 
