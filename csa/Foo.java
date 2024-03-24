@@ -1,4 +1,3 @@
-
 public class Foo {
   public static String reverse(String str) {
     String temp = "";
