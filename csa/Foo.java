@@ -1,37 +1,15 @@
-import java.util.Scanner;
 
 public class Foo {
-  public static void main(String[] args) {
-    String[][] arr = { { "Hello,", "Hi,", "Hey," },
-
-        { "it's", "it is", "it really is" },
-
-        { "nice", "great", "a pleasure" },
-
-        { "to", "to get to", "to finally" },
-
-        { "meet", "see", "catch up with" },
-
-        { "you", "you again", "you all" } };
-
-    for (int j = 0; j < arr.length; j++)
-
-    {
-
-      for (int k = 0; k < arr[0].length; k++)
-
-      {
-
-        if (k == 1)
-
-        {
-
-          System.out.print(arr[j][k] + " ");
-
-        }
-
-      }
-
+  public static String reverse(String str) {
+    String temp = "";
+    for (int i = str.length() - 1; i > 0; i--) {
+      temp += str.substring(i - 1, i);
     }
+    return temp;
+  }
+
+  public static void main(String[] args) {
+    System.out.println(reverse("apple"));
+
   }
 }
