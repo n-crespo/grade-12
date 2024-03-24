@@ -21,19 +21,19 @@ public class MultiplicationTable {
 
     // Print the multiplication table header
     System.out.print("0 ");
-    printSpaces(5 - String.valueOf(0).length());
+    printSpaces(5 - countDigits(0));
     for (int j = 1; j <= cols; j++) {
       System.out.print(j);
-      printSpaces(5 - String.valueOf(j).length());
+      printSpaces(5 - countDigits(j));
     }
     System.out.println();
 
     for (int i = 0; i < rows; i++) {
       System.out.print((i + 1));
-      printSpaces(6 - String.valueOf(i + 1).length());
+      printSpaces(6 - countDigits(i + 1));
       for (int j = 0; j < cols; j++) {
         System.out.print(multiplicationTable[i][j]);
-        printSpaces(5 - String.valueOf(multiplicationTable[i][j]).length());
+        printSpaces(5 - countDigits(multiplicationTable[i][j]));
       }
       System.out.println();
     }
@@ -46,6 +46,18 @@ public class MultiplicationTable {
     for (int i = 0; i < count; i++) {
       System.out.print(" ");
     }
+  }
+
+  public static int countDigits(int number) {
+    int count = 0;
+    if (number == 0) {
+      return 1;
+    }
+    while (number != 0) {
+      number /= 10;
+      count++;
+    }
+    return count;
   }
 
 }
