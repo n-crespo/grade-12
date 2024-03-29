@@ -1,0 +1,25 @@
+---
+title: ""
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+```{r}
+dat <- read.csv("data.csv")
+library(ggplot2)
+names(dat)
+```
+
+Humidity with respect to day and time
+
+```{r}
+ggplot(dat, aes(x = Day, y = Humidity)) +
+  geom_boxplot()
+```
