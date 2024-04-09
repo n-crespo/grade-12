@@ -7,9 +7,10 @@ public class SubClass extends SuperClass {
     super.A();
   }
 
+  // -----------------------------------------------------------------------
   public static void main(String[] args) {
     SuperClass thing = new SubClass();
-    ((SubClass) thing).C();
-
+    thing.A();
+    thing.C();
   }
 }
