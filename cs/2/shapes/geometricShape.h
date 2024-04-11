@@ -4,6 +4,7 @@
 #include <string>
 
 using namespace std;
+
 class geometricShape {
 private:
   string color;
@@ -11,6 +12,7 @@ private:
 public:
   void setColor(string newColor) { color = newColor; };
   string getColor() const { return color; }
+
   geometricShape(string col = "None") { color = col; };
 };
 

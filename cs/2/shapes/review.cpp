@@ -3,8 +3,8 @@
 #include <iostream>
 
 int main() {
-  Rectangle r(3, 4, "red");
   Circle c(5, "blue");
+  Rectangle r(3, 4, "red");
 
   cout << r.area() << endl;
   cout << "R color: " << r.getColor() << endl;

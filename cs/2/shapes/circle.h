@@ -8,7 +8,7 @@ private:
 
 public:
   void setRadius(double r) { radius = r; }
-  double getRadius() { return radius; }
+  double getRadius() const { return radius; }
 
   double circumference() { return 2 * 3.14 * radius; }
   double area() { return 3.14 * radius * radius; }
