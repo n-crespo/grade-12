@@ -10,7 +10,6 @@ public class SubClass extends SuperClass {
   // -----------------------------------------------------------------------
   public static void main(String[] args) {
     SuperClass thing = new SubClass();
-    thing.A();
     thing.C();
   }
 }
