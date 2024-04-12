@@ -1,5 +1,5 @@
 #include "ULP.h"
-#include "Arduino.h"
+/* #include "Arduino.h" */
 
 ULP::ULP(int a, int b, float c) : pCPin(a), pTPin(b), pSf(c) {
 
@@ -18,6 +18,7 @@ ULP::ULP(int a, int b, float c) : pCPin(a), pTPin(b), pSf(c) {
 // float ULP::pVcc = 5.0;
 // float ULP::pVsup = 3.3;
 
+// done (many commented lines)
 void ULP::getTemp(int n) {
   unsigned long etime, i = 0;
   unsigned long anaCounts = 0;
@@ -83,6 +84,7 @@ void ULP::setTSpan(float t, String R) {
   Serial.println(pTb);
 }
 
+// done
 void ULP::setVref(int b, long R2) {
   // Caluclate Expected Vref
   if (b >= 0)
@@ -92,6 +94,7 @@ void ULP::setVref(int b, long R2) {
   pVref_set = pVref;
 }
 
+// done
 bool ULP::OCzero(int n) {
   // Measure real Vref
   unsigned long etime, i = 0;
@@ -107,6 +110,7 @@ bool ULP::OCzero(int n) {
     delay(1);
     i++;
   } while (millis() < etime);
+
   float Cnts = float(anaCounts) / float(i);
   pVref_set = Cnts * pVcc * 1000.0 / 1024.0; // in mV
   Serial.println(abs(pVref - pVref_set));
@@ -117,11 +121,13 @@ bool ULP::OCzero(int n) {
     return true;
 }
 
+// done
 void ULP::zero() {
   pIzero = pInA;
   pTzero = pT;
 }
 
+// done
 void ULP::getIgas(int n) {
   unsigned long etime, i = 0;
   unsigned long anaCounts = 0;
@@ -137,6 +143,7 @@ void ULP::getIgas(int n) {
   pInA = (pVgas - pVref_set) / pGain * 1000.0; // in nA
 }
 
+// done
 void ULP::getConc(float t) {
   float nA = pInA - pIzero * expI(t - pTzero);
   float Sens = pSf * (1.0 + pTc * (t - 20.0));
