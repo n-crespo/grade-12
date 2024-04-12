@@ -3,14 +3,18 @@ import math
 
 class ULP:
     def __init__(self, a, b, c):
-        self._pCPin = 0.0  # pin numbers
-        self._pTPin = 0.0  # pin numbers
 
+        # NOTE: these are supposed to be private
+        self.pCPin = 0.0  # pin numbers
+        self.pTPin = 0.0  # pin numbers
         # temp sensor settings
-        self._pHtemp = 0.0
-        self._pLtemp = 0.0  # temps for cal of temp sensor
-        self._pHvolt = 0.0  # volts for cal of temp sensor
-        self._pLvolt = 0.0  # volts for cal of temp sensor
+        self.pHtemp = 40.0
+        self.pLtemp = 20.0  # temps for cal of temp sensor
+        self.pHvolt = (self.pHtemp + self.pTb) * self.pVsup / self.pTs # # volts for cal of temp sensor
+        self.pHvolt = (self.pLtemp + self.pTb) * self.pVsup / self.pTs # # volts for cal of temp sensor
+
+        # float ULP::pVcc = 5.0;
+        # float ULP::pVsup = 3.3;
 
         # // gas sensor settings
         # float pSf;         // initializers for sensor
@@ -48,12 +52,12 @@ class ULP:
         self.pVgas = 0.0
         self.pT = 0.0
         self.pX = 0.0
-        self.pTb = 0.0
-        self.pTs = 0.0
+        self.pTb = 18.0
+        self.pTs = 87.0
         self.pTc = 0.0
         self.pn = 0.0
+        self.pTzero = 20.0
         self.pIzero = 0.0
-        self.pTzero = 0.0
         self.pGain = 0.0
 
     # convert to fahrenheit or celsius
@@ -171,20 +175,131 @@ class ULP:
         self.pVgas = Cnts * self.pVcc * 1000.0 / 1024.0 # in mV
         self.pInA = (self.pVgas - self.pVref_set) / self.pGain * 1000.0 # in nA
 
-    # NOTE: Current progress here
 
     def setXSpan(self):
-        pass
+        # Serial.setTimeout(10000)
+        X = 0;
+        nA, Sf = 0, 0 # NOTE: nA is never used??? (python)
+
+        # Serial.print("When gas concentration steady, enter Concentration in ppm "
+        #             "followed by 'cr' = ")
+        # while (Serial.available() <= 0):
+        #     X = Serial.parseFloat()
+        #     Serial.println(X)
+        #     getIgas(10)
+
+        Sf = self.pInA / X;
+        if (abs(Sf - self.pSf) * 2 / (Sf + self.pSf) < .1):
+            self.pSf = Sf
+        else:
+            # Serial.println("Error Setting Span");
 
     def setTSpan(self, t, R):
-        pass
+        # Serial.print("Old temp. span and offset: ");
+        # Serial.print(self.pTs);
+        # Serial.print(", ");
+        # Serial.println(self.pTb);
+        etime, i = 0, 0
+        n = 10
+        anaCounts = 0
+        # etime = millis() + n * 1000; # what is millis()
 
+        # this is a do while loop
+        # anaCounts = anaCounts + analogRead(self.pTPin);
+        # delay(1)
+        # i+=1
+        # while millis() < etime:
+        #     anaCounts = anaCounts + analogRead(self.pTPin)
+        #     delay(1)
+        #     i+=1
 
-class SPEC(ULP):
-    def __init__(self, a, b, c=1.0):
+        Cnts = float(anaCounts) / float(i)
+        Volts = Cnts * self.pVcc / 1024
+
+        if R == "HIGH":
+            self.pHtemp = t
+            self.pHvolt = Volts
+        elif R == "LOW":
+            self.pLtemp = t
+            self.pLvolt = Volts
+
+        self.pTs = self.pVsup * (self.pHtemp - self.pLtemp) / (self.pHvolt - self.pLvolt)
+        self.pTb = self.pLvolt * (self.pHtemp - self.pLtemp) / (self.pHvolt - self.pLvolt) - self.pLtemp
+        # Serial.print("New temp. span and offset: ")
+        # Serial.print(self.pTs)
+        # Serial.print(", ")
+        # Serial.println(self.pTb)
+
+        # NOTE: current progress here
+
+class EtOH(ULP):
+    def __init__(self, a, b, c=194.0):
         super().__init__(a, b, c)
+        self.setVref(+100, 69800)
+        self.pGain = 249.0
+        self.pn = 1
+        self.pTc = 0.01
+
+class H2S(ULP):
+    def __init__(self, a, b, c=194.0):
+        super().__init__(a, b, c)
+        self.setVref(+3, 2000)
+        self.pGain = 49.9
+        self.pn = -300.0
+        self.pTc = 0.007
+
+
+class CO(ULP):
+    def __init__(self, a, b, c=2.44):
+        super().__init__(a, b, c)
+        self.setVref(+3, 2000)
+        self.pGain = 100.0
+        self.pn = 13.6
+        self.pTc = 0.007
+
+
+class IAQ(ULP):
+    def __init__(self, a, b, c = 150.0):
+        super().__init__(a, b, c)
+        self.setVref(+150, 105000)
+        self.pGain = 100.0
+        self.pn = 1
+        self.pTc = 0.01
 
 
 class SO2(ULP):
     def __init__(self, a, b, c=14.6):
         super().__init__(a, b, c)
+        self.setVref(+200, 143000)
+        self.pGain = 100.0
+        self.pn = 10.26
+        self.pTc = -0.026
+
+class NO2(ULP):
+    def __init__(self, a, b, c=-25.0):
+        super().__init__(a, b, c)
+        self.setVref(-25, 16200)
+        self.pGain = 499.0
+        self.pn = 109.6
+        self.pTc = 0.005
+
+class RESP(ULP):
+    def __init__(self, a, b, c=-21.5):
+        super().__init__(a, b, c)
+        self.setVref(-200, 143000)
+        self.pGain = 499.0
+        self.pn = 1
+        self.pTc = 0.00
+
+class O3(ULP):
+    def __init__(self, a, b, c=-20.0):
+        super().__init__(a, b, c)
+        self.setVref(-25, 16200)
+        self.pGain = 499.0
+        self.pn = 109.6
+        self.pTc = -0.005
+
+class SPEC(ULP):
+    def __init__(self, a, b, c=1.0):
+        super().__init__(a, b, c)
+

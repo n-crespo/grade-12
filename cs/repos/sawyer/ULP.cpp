@@ -34,6 +34,7 @@ void ULP::getTemp(int n) {
   pT = (pTs / pVsup) * Volts - pTb;
 }
 
+// done
 float ULP::convertT(char U) {
   if (U == 'F') {
     float TempF = pT * 9 / 5 + 32;
@@ -44,6 +45,7 @@ float ULP::convertT(char U) {
     return 0;
 }
 
+// done
 float ULP::convertX(char U) {
   if (U == 'B')
     return pX;
@@ -53,6 +55,7 @@ float ULP::convertX(char U) {
     return 0;
 }
 
+// done (translated)
 void ULP::setTSpan(float t, String R) {
   Serial.print("Old temp. span and offset: ");
   Serial.print(pTs);
@@ -150,12 +153,14 @@ void ULP::getConc(float t) {
   pX = nA / Sens * 1000.0; // output in ppb
 }
 
+// done
 float ULP::expI(float T) { return exp(T / pn); }
 
+// done
 void ULP::setXSpan() {
   Serial.setTimeout(10000);
   float X;
-  float nA, Sf;
+  float nA, Sf; // NOTE: nA is never used????
   Serial.print("When gas concentration steady, enter Concentration in ppm "
                "followed by 'cr' = ");
   while (Serial.available() <= 0) {
