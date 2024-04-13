@@ -35,3 +35,8 @@ Example functions:
 
   anaCounts = anaCounts + analogRead(pTPin);
 ```
+
+# Other Notes
+
+In these translated files, all of the instances of the above questions must be
+edited and corrected, and all comments must be reviewed.
