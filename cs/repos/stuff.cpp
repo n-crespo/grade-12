@@ -42,7 +42,7 @@ public:
   float pVcc = 5.0;  // analog read reference voltage, usually 5 V for Uno
   float pVsup = 3.3; // voltage supplied to ULP, !!!! max 3.3 V !!!!
   float pVref_set;   // initially set to pVref, then reset to include V of open
-                   // circuit voltage during OCzero()
+                     // circuit voltage during OCzero()
   float pVref; // vref is voltage divider, this is set ideally voltage with no
                // current through circuit (electronic zero)
   float pInA;  // the last calculated value of current for the sensor

@@ -1,4 +1,6 @@
 import math
+# import time # is possibly needed
+# import {some arduino library} # is probably needed
 
 
 class ULP:
@@ -191,7 +193,7 @@ class ULP:
         Sf = self.pInA / X;
         if (abs(Sf - self.pSf) * 2 / (Sf + self.pSf) < .1):
             self.pSf = Sf
-        else:
+        # else:
             # Serial.println("Error Setting Span");
 
     def setTSpan(self, t, R):
@@ -225,10 +227,9 @@ class ULP:
 
         self.pTs = self.pVsup * (self.pHtemp - self.pLtemp) / (self.pHvolt - self.pLvolt)
         self.pTb = self.pLvolt * (self.pHtemp - self.pLtemp) / (self.pHvolt - self.pLvolt) - self.pLtemp
-        # Serial.print("New temp. span and offset: ")
-        # Serial.print(self.pTs)
-        # Serial.print(", ")
-        # Serial.println(self.pTb)
+        print(f"New temp. span and offset: {self.pTs}")
+        # print(", ")
+        # println(self.pTb)
 
         # NOTE: current progress here
 
@@ -302,4 +303,3 @@ class O3(ULP):
 class SPEC(ULP):
     def __init__(self, a, b, c=1.0):
         super().__init__(a, b, c)
-

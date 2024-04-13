@@ -1,10 +1,7 @@
 from math import exp
 import time
-from ULP import ULP, SPEC, SO2
+from ULP import ULP, SPEC, SO2 # NOTE: hmmm this may be important...
 
-
-def current_milli_time():
-    return round(time.time() * 1000)
 
 
 class ULP:
