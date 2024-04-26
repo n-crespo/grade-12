@@ -1,0 +1,49 @@
+---
+title: ""
+author: "Nicolas Crespo"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+---
+
+| Honeysuckle Density | Species Richness |
+|---------------------|------------------|
+| 24                  | 6                |
+| 5                   | 12               |
+| 13                  | 3                |
+| 31                  | 2                |
+| 20                  | 10               |
+| 4                   | 8                |
+| 13                  | 15               |
+| 4                   | 20               |
+
+```{r}
+dat <- read.csv("data.csv")
+dat
+```
+
+Analyze the data set. Do a linear regression of Species Richness on Honeysuckle
+Density.
+
+```{r}
+library(graphics)
+dat$richness ~ dat$density
+plot(dat$richness ~ dat$density, las = 1)
+
+regression <- lm(richness ~ density, data = dat)
+anova(regression)
+summary(regression)
+
+plot(
+  richness ~ density,
+  data = dat,
+  xlab = "Honeysuckle Density",
+  ylab = "Species Richness"
+)
+plot(regression, las = 1)
+```
