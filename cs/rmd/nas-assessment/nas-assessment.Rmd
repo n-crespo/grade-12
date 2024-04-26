@@ -34,8 +34,9 @@ Density.
 library(graphics)
 dat$richness ~ dat$density
 plot(dat$richness ~ dat$density, las = 1)
-
 regression <- lm(richness ~ density, data = dat)
+lines(dat$density, predict(regression), col = "red")
+
 anova(regression)
 summary(regression)
 
