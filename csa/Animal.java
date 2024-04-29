@@ -14,7 +14,21 @@ public class Animal {
     System.out.println("Animal constructor with a number");
   }
 
+  public static void insertionSort(int[] elements) {
+    for (int j = 1; j < elements.length; j++) {
+      int temp = elements[j];
+      int possibleIndex = j;
+      while (possibleIndex > 0 && temp < elements[possibleIndex - 1]) {
+        elements[possibleIndex] = elements[possibleIndex - 1];
+        possibleIndex--;
+      }
+      elements[possibleIndex] = temp;
+    }
+  }
+
   public static void main(String[] args) {
     Lion lion = new Lion(5);
+    Animal temp = new Lion();
+    Animal temp2 = new BengalLion();
   }
 }
