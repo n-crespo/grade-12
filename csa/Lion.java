@@ -1,6 +1,5 @@
-/**
- * Lion
- */
+package csa;
+
 public class Lion extends Animal {
 
   public Lion() {
