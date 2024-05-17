@@ -4,6 +4,21 @@ import java.util.Scanner;
  * Wordle
  */
 public class Wordle {
+  public static String getInput(String message) {
+    String input = "";
+    @SuppressWarnings("resource") // FIXME: REMOVE THIS LATER
+    Scanner scan = new Scanner(System.in);
+    System.out.print(message);
+    input = scan.next();
+    System.out.println("This is working 1");
+    while (input.length() != 5) {
+      System.out.println("This is working 2");
+      System.out.print("Please enter a FIVE letter word: ");
+      input = scan.next();
+    }
+    return input.toLowerCase();
+  }
+
   public static boolean charInCorrectPosition(String word, char guessedLetter, int pos) {
     if (word.charAt(pos) == guessedLetter) {
       return true;
@@ -19,15 +34,15 @@ public class Wordle {
   }
 
   // if letter has been used, replace letter with # in used words list
-  public static void addToUsedWords(String guess, char usedLetters[]) {
-    for (int j = 0; j < usedLetters.length; j++) {
-      if (guess.contains(usedLetters[j] + "")) {
-        usedLetters[j] = '#';
+  public static void addToUsedWords(String guess, String usedLetters[]) {
+    for (int i = 0; i < usedLetters.length; i++) {
+      if (guess.indexOf(usedLetters[i]) >= 0) {
+        usedLetters[i] = "#";
       }
     }
   }
 
-  public static void printScreen(char allGuesses[][], char usedLetters[], int currentRow) {
+  public static void printScreen(char allGuesses[][], String usedLetters[], int currentRow) {
     for (int i = 0; i < allGuesses.length; i++) {
       System.out.print("|");
       for (int j = 0; j < allGuesses[i].length; j++) {
@@ -47,25 +62,22 @@ public class Wordle {
 
   public static void main(String[] args) {
     // array of the alphabet
-    char usedLetters[] = new char[26];
+    String usedLetters[] = new String[26];
     for (int i = 0; i < usedLetters.length; i++) {
-      usedLetters[i] = (char) (65 + i);
+      usedLetters[i] = ("" + ((char) (65 + i))).toLowerCase(); // concatenate empty string to convert char to str
     }
     int lettersCorrect = 0;
     int numAttempts = 0;
     char allGuesses[][] = new char[12][5];
     int currentRow = 0;
-    Scanner scanner = new Scanner(System.in);
 
     // header + word to guess
     System.out.println("***Welcome to Wordle!***");
-    System.out.println("Have someone enter in a five letter word for you to guess, all caps:");
-    String word = scanner.nextLine();
+    String word = getInput("Have someone enter in a five letter word for you to guess: ");
     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
     while (lettersCorrect < 5 && numAttempts < 6) {
-      System.out.print("Enter a 5 letter word in all caps: ");
-      String guess = scanner.next();
+      String guess = getInput("Enter a 5 letter word: ");
       lettersCorrect = 0;
       numAttempts++;
 
@@ -92,8 +104,7 @@ public class Wordle {
       System.out.println("You used " + numAttempts + " guesses.");
     } else if (numAttempts == 6) {
       System.out.println("You ran out of guesses!");
-
     }
-    scanner.close();
   }
+
 }
