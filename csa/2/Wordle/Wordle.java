@@ -10,9 +10,7 @@ public class Wordle {
     Scanner scan = new Scanner(System.in);
     System.out.print(message);
     input = scan.next();
-    System.out.println("This is working 1");
     while (input.length() != 5) {
-      System.out.println("This is working 2");
       System.out.print("Please enter a FIVE letter word: ");
       input = scan.next();
     }
@@ -104,6 +102,7 @@ public class Wordle {
       System.out.println("You used " + numAttempts + " guesses.");
     } else if (numAttempts == 6) {
       System.out.println("You ran out of guesses!");
+      System.out.println("The word was " + word);
     }
   }
 

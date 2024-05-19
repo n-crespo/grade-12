@@ -1,18 +1,19 @@
-def sieve_of_eratosthenes(limit):
-    # Create a boolean list "is_prime[0..n]" and initialize all elements as True
-    is_prime = [True] * (limit + 1)
-    is_prime[0] = is_prime[1] = False  # 0 and 1 are not prime numbers
+import numpy as np
 
-    for num in range(2, int(limit**0.5) + 1):
-        if is_prime[num]:
-            # Mark all multiples of num as non-prime
-            for multiple in range(num * num, limit + 1, num):
-                is_prime[multiple] = False
+# Define the matrix of coefficients
+coeff_matrix = np.array([
+    [1, 1, 1, 0, 0, 0],
+    [4, 1, 1, 0, 0, 0],
+    [1, 3, 1, 0, 0, 0],
+    [0, 0, 0, 1, 1, 1],
+    [0, 0, 0, 4, 1, 1],
+    [0, 0, 0, 1, 3, 1]
+])
 
-    # Return the list of prime numbers
-    return [num for num in range(2, limit + 1) if is_prime[num]]
+# Define the vector of known values
+known_values = np.array([2, 5, 2, 3, 3, 6])
 
-
-# Example: Finding primes up to 50
-primes_up_to_50 = sieve_of_eratosthenes(50)
-print(primes_up_to_50)
+# Solve the system of equations
+transformation_params = np.linalg.solve(coeff_matrix, known_values)
+a, b, t_x, c, d, t_y = transformation_params
+print(transformation_params)
