@@ -1,3 +1,7 @@
 # foo.*
 # Foo.*
-bin/*
+bin/
+!.gitignore
+*.log
+bin
+/bin/
