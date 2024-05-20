@@ -2,7 +2,7 @@ public class Attraction {
   private int maxRiders;
   private double ticketPrice;
   private double utilityCost;
-  private int rideLength;
+  private double rideLength;
   private int ridersPerHour;
   private int hoursPerDay;
   private double speed;
@@ -32,7 +32,7 @@ public class Attraction {
     this.utilityCost = utilityCost;
   }
 
-  public int getRideLength() {
+  public double getRideLength() {
     return rideLength;
   }
 
@@ -72,7 +72,7 @@ public class Attraction {
     this.height = height;
   }
 
-  public Attraction(int maxRiders, double ticketPrice, double utilityCost, int rideLength, int ridersPerHour,
+  public Attraction(int maxRiders, double ticketPrice, double utilityCost, double rideLength, int ridersPerHour,
       int hoursPerDay, double speed, double height) {
     this.maxRiders = maxRiders;
     this.ticketPrice = ticketPrice;
