@@ -4,6 +4,6 @@ bin/
 !.gitignore
 *.log
 bin
-./bin/
-./csa/bin/
-./csa/2/Attraction/bin/
+bin/
+csa/bin/
+csa/2/Attraction/bin/
