@@ -27,7 +27,10 @@ public class RollerCoaster extends Attraction {
   }
 
   public static void main(String[] args) {
-    RollerCoaster rollerCoaster = new RollerCoaster(10, 10, 10, 10, 10, 10, 10, 10, true, 10);
+    RollerCoaster rollerCoaster = new RollerCoaster(
+        10, 10, 10, 10, 10, 10, 10, 10, true, 10);
+
+    System.out.println("hello from rollercoaster");
   }
 
 }
