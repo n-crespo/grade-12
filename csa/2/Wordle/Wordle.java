@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -6,7 +7,6 @@ import java.util.Scanner;
 public class Wordle {
   public static String getInput(String message) {
     String input = "";
-    @SuppressWarnings("resource") // FIXME: REMOVE THIS LATER
     Scanner scan = new Scanner(System.in);
     System.out.print(message);
     input = scan.next();
@@ -68,12 +68,53 @@ public class Wordle {
     int numAttempts = 0;
     char allGuesses[][] = new char[12][5];
     int currentRow = 0;
+    String word = "";
 
     // header + word to guess
     System.out.println("***Welcome to Wordle!***");
-    String word = getInput("Have someone enter in a five letter word for you to guess: ");
+    // randon number from 0 to 20
+    int randomNum = (int) (Math.random() * 20);
+    // 20 five letter words in ArrayList
+    ArrayList<String> wordList = new ArrayList<String>();
+    wordList.add("apple");
+    wordList.add("hello");
+    wordList.add("water");
+    wordList.add("pizza");
+    wordList.add("hello");
+    wordList.add("jazzy");
+    wordList.add("quick");
+    wordList.add("quack");
+    wordList.add("candy");
+    wordList.add("sugar");
+    wordList.add("happy");
+    wordList.add("party");
+    wordList.add("crisp");
+    wordList.add("scoop");
+    wordList.add("scrum");
+    wordList.add("piano");
+    wordList.add("sloth");
+    wordList.add("sweep");
+    wordList.add("spicy");
+    wordList.add("spark");
+
+    System.out.print("Do you want (1) a random word, or (2) your own? (type 1 or 2): ");
+    Scanner scan = new Scanner(System.in);
+    int randomOrOwn = scan.nextInt();
+
+    while (randomOrOwn != 1 && randomOrOwn != 2) {
+      System.out.print("Enter 1 or 2: ");
+      randomOrOwn = scan.nextInt();
+    }
+    if (randomOrOwn == 1) {
+      word = wordList.get(randomNum);
+    } else if (randomOrOwn == 2) {
+      word = getInput("Have someone enter in a five letter word for you to guess: ");
+    }
     System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
 
+    System.out.println(
+        "How to Play: \n============\n*: letter is in correct position\n@: letter is not in the correct position, but is in the word\nx: letter is not in the word");
+    System.out.println("============\n");
     while (lettersCorrect < 5 && numAttempts < 6) {
       String guess = getInput("Enter a 5 letter word: ");
       lettersCorrect = 0;
