@@ -26,8 +26,5 @@ public class Animal {
   }
 
   public static void main(String[] args) {
-    Lion lion = new Lion(5);
-    Animal temp = new Lion();
-    Animal temp2 = new BengalLion();
   }
 }

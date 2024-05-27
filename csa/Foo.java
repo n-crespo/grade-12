@@ -1,8 +1,5 @@
 package csa;
 
-/**
- * Foo
- */
 public class Foo {
 
   public static void mod(int[] a, int value) {
@@ -16,6 +13,6 @@ public class Foo {
     int[] itemArray = { 9, 8, 7, 6 };
     int val = 5;
     mod(itemArray, val);
-
+    System.out.println("hello");
   }
 }
