@@ -14,5 +14,7 @@ public class Foo {
     int val = 5;
     mod(itemArray, val);
     System.out.println("hello");
+    System.out.println(val);
+    System.out.println("HELLO");
   }
 }
