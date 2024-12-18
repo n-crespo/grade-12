@@ -14,6 +14,7 @@ public class Wordle {
       System.out.print("Please enter a FIVE letter word: ");
       input = scan.next();
     }
+    scan.close();
     return input.toLowerCase();
   }
 
@@ -145,6 +146,7 @@ public class Wordle {
       System.out.println("You ran out of guesses!");
       System.out.println("The word was " + word);
     }
+    scan.close();
   }
 
 }
